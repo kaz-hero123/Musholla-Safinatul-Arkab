@@ -88,13 +88,13 @@ export default function InfaqReport() {
         </div>
 
         <div className="flex justify-center mt-12">
-          <HoverBorderGradient
-            as="a"
-            href="#"
-            className="bg-black text-white px-8 py-3 flex items-center gap-2"
-          >
-            <span>Salurkan Infaq Anda (WhatsApp)</span>
-          </HoverBorderGradient>
+          <a href="#">
+            <HoverBorderGradient
+              className="bg-black text-white px-8 py-3 flex items-center gap-2"
+            >
+              <span>Salurkan Infaq Anda (WhatsApp)</span>
+            </HoverBorderGradient>
+          </a>
         </div>
       </div>
     </section>
