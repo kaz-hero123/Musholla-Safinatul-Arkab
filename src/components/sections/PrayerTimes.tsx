@@ -9,11 +9,9 @@ export default function PrayerTimes() {
   const [times, setTimes] = useState<PrayerTimesType | null>(null);
   const [loading, setLoading] = useState(true);
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
-  const [nextPrayer, setNextPrayer] = useState<{ name: string; time: string; diffMs: number } | null>(null);
 
   useEffect(() => {
     // Only run on client to avoid hydration mismatch
-    setCurrentTime(new Date());
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -25,9 +23,9 @@ export default function PrayerTimes() {
     });
   }, []);
 
-  useEffect(() => {
-    if (!times || !currentTime) return;
-    
+  // Derive nextPrayer directly during render
+  let nextPrayer = null;
+  if (times && currentTime) {
     const prayerList = [
       { name: "Subuh", time: times.Fajr },
       { name: "Dzuhur", time: times.Dhuhr },
@@ -44,21 +42,20 @@ export default function PrayerTimes() {
       
       const diffMs = prayerDate.getTime() - currentTime.getTime();
       if (diffMs > 0) {
-        setNextPrayer({ name: prayer.name, time: prayer.time, diffMs });
+        nextPrayer = { name: prayer.name, time: prayer.time, diffMs };
         foundNext = true;
         break;
       }
     }
 
     if (!foundNext) {
-      // Next prayer is Subuh tomorrow
       const [hours, minutes] = times.Fajr.split(':').map(Number);
       const subuhTomorrow = new Date(currentTime);
       subuhTomorrow.setDate(subuhTomorrow.getDate() + 1);
       subuhTomorrow.setHours(hours, minutes, 0, 0);
-      setNextPrayer({ name: "Subuh", time: times.Fajr, diffMs: subuhTomorrow.getTime() - currentTime.getTime() });
+      nextPrayer = { name: "Subuh", time: times.Fajr, diffMs: subuhTomorrow.getTime() - currentTime.getTime() };
     }
-  }, [times, currentTime]);
+  }
 
   const formatCountdown = (ms: number) => {
     const totalSeconds = Math.floor(ms / 1000);

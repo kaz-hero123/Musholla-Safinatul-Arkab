@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 import { Inter, Plus_Jakarta_Sans, Amiri } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
-import SplashScreen from "@/components/layout/SplashScreen";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
 const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
@@ -37,14 +38,16 @@ export default function RootLayout({
   return (
     <html lang="id" className="dark">
       <body className={cn(
-        "min-h-screen bg-bg-primary text-text-primary font-sans antialiased",
+        "min-h-screen bg-bg-primary text-text-primary font-sans antialiased flex flex-col overflow-x-hidden",
         inter.variable,
         plusJakarta.variable,
         amiri.variable
       )}>
-        <SplashScreen>
+        <Navbar />
+        <main className="flex-1">
           {children}
-        </SplashScreen>
+        </main>
+        <Footer />
       </body>
     </html>
   );

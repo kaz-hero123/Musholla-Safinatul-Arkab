@@ -1,5 +1,6 @@
 import React from "react";
 import { Phone } from "lucide-react";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -32,18 +33,18 @@ export default function Footer() {
           <div>
             <h3 className="font-bold text-white mb-4">Navigasi Cepat</h3>
             <ul className="space-y-2 text-text-secondary">
-              <li><a href="#hero" className="hover:text-emerald-light transition-colors">Beranda</a></li>
-              <li><a href="#about" className="hover:text-emerald-light transition-colors">Tentang Kami</a></li>
-              <li><a href="#programs" className="hover:text-emerald-light transition-colors">Program</a></li>
-              <li><a href="#infaq" className="hover:text-emerald-light transition-colors">Laporan Infaq</a></li>
+              <li><Link href="/" className="hover:text-emerald-light transition-colors">Beranda</Link></li>
+              <li><Link href="/tentang" className="hover:text-emerald-light transition-colors">Tentang Kami</Link></li>
+              <li><Link href="/program" className="hover:text-emerald-light transition-colors">Program</Link></li>
+              <li><Link href="/infaq" className="hover:text-emerald-light transition-colors">Laporan Infaq</Link></li>
             </ul>
           </div>
           
           <div>
             <h3 className="font-bold text-white mb-4">Informasi</h3>
             <ul className="space-y-2 text-text-secondary">
-              <li><a href="#gallery" className="hover:text-emerald-light transition-colors">Galeri</a></li>
-              <li><a href="#contact" className="hover:text-emerald-light transition-colors">Kontak</a></li>
+              <li><Link href="/galeri" className="hover:text-emerald-light transition-colors">Galeri</Link></li>
+              <li><Link href="/kontak" className="hover:text-emerald-light transition-colors">Kontak</Link></li>
             </ul>
           </div>
         </div>
