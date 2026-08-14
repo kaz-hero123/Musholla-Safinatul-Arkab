@@ -1,13 +1,15 @@
 import Hero from "@/components/sections/Hero";
-import Programs from "@/components/sections/Programs";
-import PrayerTimes from "@/components/sections/PrayerTimes";
+import NextPrayerChip from "@/components/ui/next-prayer-chip";
+import HomeTeasers from "@/components/sections/HomeTeasers";
 
 export default function Home() {
   return (
     <>
       <Hero />
-      <PrayerTimes />
-      <Programs />
+      <div className="relative z-20">
+        <NextPrayerChip />
+      </div>
+      <HomeTeasers />
     </>
   );
 }
