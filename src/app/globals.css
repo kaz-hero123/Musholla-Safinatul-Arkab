@@ -1,45 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #0A0A0A;
-  --color-bg-secondary: #141414;
-  --color-bg-tertiary: #1A1F1A;
-  --color-surface-glass: rgba(16, 185, 129, 0.05);
+  --color-bg-primary: #FFFEF2;
+  --color-bg-secondary: #F5F2E8;
+  --color-bg-tertiary: #EBE8DE;
   
   --color-emerald-primary: #10B981;
   --color-emerald-light: #34D399;
   --color-emerald-deep: #059669;
   
-  --color-text-primary: #F9FAFB;
-  --color-text-secondary: #9CA3AF;
+  --color-text-primary: #333333;
+  --color-text-secondary: #4B5563;
   --color-text-muted: #6B7280;
   
   --color-accent-gold: #F59E0B;
   --color-border-green: rgba(16, 185, 129, 0.15);
 
+  --color-warm-bg: #EDCCBE;
+  --color-warm-text: #331917;
+
   --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-plus-jakarta), sans-serif;
+  --font-display: var(--font-playfair), serif;
   --font-arabic: var(--font-amiri), serif;
 }
 
 @layer base {
   :root {
-    --bg-primary: #0A0A0A;
-    --bg-secondary: #141414;
-    --bg-tertiary: #1A1F1A;
-    --surface-glass: rgba(16, 185, 129, 0.05);
+    --bg-primary: #FFFEF2;
+    --bg-secondary: #F5F2E8;
+    --bg-tertiary: #EBE8DE;
     --accent-primary: #10B981;
     --accent-glow: #34D399;
     --accent-deep: #059669;
-    --text-primary: #F9FAFB;
-    --text-secondary: #9CA3AF;
+    --text-primary: #333333;
+    --text-secondary: #4B5563;
     --text-muted: #6B7280;
     --accent-warm: #F59E0B;
-    --border: rgba(16, 185, 129, 0.15);
+    --border: rgba(51, 51, 51, 0.1);
 
-    --gradient-hero: radial-gradient(ellipse at 50% 0%, rgba(16, 185, 129, 0.15) 0%, transparent 60%);
-    --gradient-card-glow: linear-gradient(135deg, rgba(16, 185, 129, 0.1) 0%, rgba(5, 150, 105, 0.05) 100%);
-    --gradient-fade: linear-gradient(180deg, #0A0A0A 0%, #141414 100%);
+    --warm-bg: #EDCCBE;
+    --warm-text: #331917;
   }
 }
 
@@ -64,14 +64,13 @@
 
 body {
   background-color: var(--bg-primary);
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)' opacity='0.03'/%3E%3C/svg%3E");
   color: var(--text-primary);
   scroll-behavior: smooth;
+  font-feature-settings: "cv02", "cv03", "cv04", "cv11";
 }
 
 .glass-card {
-  background-color: var(--surface-glass);
-  backdrop-filter: blur(16px);
+  background-color: var(--bg-primary);
   border: 1px solid var(--border);
   border-radius: 1rem;
 }
