@@ -41,3 +41,14 @@ yarn-error.log*
 next-env.d.ts
 
 blueprint.md
+
+# AI & Documentation files
+AGENTS.md
+CLAUDE.md
+visual_audit_report.md
+task.md
+implementation_plan.md
+walkthrough.md
+
+# IDE settings
+.vscode/
