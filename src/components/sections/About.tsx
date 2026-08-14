@@ -6,19 +6,19 @@ import { History, Target, Users, Shield } from "lucide-react";
 
 export default function About() {
   return (
-    <section id="about" className="py-24 px-6 relative bg-bg-primary overflow-hidden">
+    <section id="about" className="py-24 px-6 relative bg-warm-bg overflow-hidden">
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.6 }}
-          className="text-center mb-16"
+          className="mb-16 border-b-2 border-warm-text/10 pb-8"
         >
-          <h2 className="text-3xl md:text-5xl font-display font-bold text-text-primary mb-4">
-            Mengenal <span className="text-emerald-primary">Safinatul Arkab</span>
+          <h2 className="text-4xl md:text-5xl font-display font-bold text-warm-text mb-4">
+            Tentang Kami
           </h2>
-          <p className="text-text-secondary max-w-2xl mx-auto text-lg">
+          <p className="text-warm-text/80 max-w-2xl text-lg">
             Lebih dari sekadar tempat ibadah. Kami adalah pusat pembinaan generasi muda Islam yang berakhlak mulia, mandiri, dan bermanfaat bagi masyarakat.
           </p>
         </motion.div>
