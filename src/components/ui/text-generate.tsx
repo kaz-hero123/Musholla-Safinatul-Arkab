@@ -1,5 +1,5 @@
 "use client";
-import { useEffect } from "react";
+import React, { useEffect } from "react";
 import { motion, stagger, useAnimate } from "framer-motion";
 import { cn } from "@/lib/utils";
 
@@ -35,15 +35,17 @@ export const TextGenerateEffect = ({
       <motion.div ref={scope}>
         {wordsArray.map((word, idx) => {
           return (
-            <motion.span
-              key={word + idx}
-              className="opacity-0 inline-block"
-              style={{
-                filter: filter ? "blur(10px)" : "none",
-              }}
-            >
-              {word}{" "}
-            </motion.span>
+            <React.Fragment key={word + idx}>
+              <motion.span
+                className="opacity-0 inline-block"
+                style={{
+                  filter: filter ? "blur(10px)" : "none",
+                }}
+              >
+                {word}
+              </motion.span>
+              {" "}
+            </React.Fragment>
           );
         })}
       </motion.div>

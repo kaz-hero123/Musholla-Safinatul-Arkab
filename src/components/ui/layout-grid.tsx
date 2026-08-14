@@ -29,7 +29,7 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
         <div key={i} className={cn(card.className, "h-64 md:h-80")}>
           <motion.div
             onClick={() => handleClick(card)}
-            className="relative overflow-hidden cursor-pointer bg-bg-secondary rounded-2xl h-full w-full border border-white/5 hover:border-emerald-primary/50 transition-colors group"
+            className="relative overflow-hidden cursor-pointer bg-bg-secondary rounded-2xl h-full w-full border border-border hover:border-emerald-primary transition-colors group"
             layoutId={`card-${card.id}`}
           >
             <img
@@ -38,8 +38,8 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
               alt="thumbnail"
             />
             {/* Hover overlay hint */}
-            <div className="absolute inset-0 bg-black/0 group-hover:bg-emerald-900/20 transition-colors flex items-center justify-center">
-              <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-black/50 text-white text-xs px-3 py-1.5 rounded-full backdrop-blur-md border border-white/10">
+            <div className="absolute inset-0 bg-bg-primary/0 group-hover:bg-emerald-900/20 transition-colors flex items-center justify-center">
+              <span className="opacity-0 group-hover:opacity-100 transition-opacity bg-bg-primary/50 text-text-primary text-xs px-3 py-1.5 rounded-full  border border-border">
                 Lihat Detail
               </span>
             </div>
@@ -53,16 +53,16 @@ export const LayoutGrid = ({ cards }: { cards: Card[] }) => {
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={handleOutsideClick}
-            className="fixed inset-0 h-full w-full bg-bg-primary/90 z-[100] backdrop-blur-xl flex items-center justify-center p-4 md:p-8"
+            className="fixed inset-0 h-full w-full bg-bg-primary/90 z-[100]  flex items-center justify-center p-4 md:p-8"
           >
              <motion.div
                 layoutId={`card-${selected.id}`}
-                className="w-full max-w-4xl max-h-[90vh] bg-bg-secondary rounded-3xl overflow-hidden border border-emerald-primary/20 shadow-[0_0_50px_rgba(16,185,129,0.15)] flex flex-col md:flex-row relative z-[101]"
+                className="w-full max-w-4xl max-h-[90vh] bg-bg-secondary rounded-3xl overflow-hidden border border-emerald-primary shadow-[0_0_50px_rgba(16,185,129,0.15)] flex flex-col md:flex-row relative z-[101]"
              >
                 {/* Close Button */}
                 <button 
                   onClick={() => setSelected(null)}
-                  className="absolute top-4 right-4 z-50 w-8 h-8 flex items-center justify-center bg-black/50 hover:bg-emerald-primary text-white rounded-full backdrop-blur-md transition-colors"
+                  className="absolute top-4 right-4 z-50 w-8 h-8 flex items-center justify-center bg-bg-primary/50 hover:bg-emerald-primary text-text-primary rounded-full  transition-colors"
                 >
                   <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
                 </button>
