@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter, Plus_Jakarta_Sans, Amiri } from "next/font/google";
+import { Inter, Playfair_Display, Amiri } from "next/font/google";
 import "./globals.css";
 import { cn } from "@/lib/utils";
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-inter" });
-const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-plus-jakarta" });
+const playfair = Playfair_Display({ subsets: ["latin"], variable: "--font-playfair" });
 const amiri = Amiri({ subsets: ["arabic"], weight: ["400", "700"], variable: "--font-amiri" });
 
 export const metadata: Metadata = {
@@ -36,11 +36,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="id" className="dark">
+    <html lang="id">
       <body className={cn(
         "min-h-screen bg-bg-primary text-text-primary font-sans antialiased flex flex-col overflow-x-hidden",
         inter.variable,
-        plusJakarta.variable,
+        playfair.variable,
         amiri.variable
       )}>
         <Navbar />
