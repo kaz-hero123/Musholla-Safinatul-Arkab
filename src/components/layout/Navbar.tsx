@@ -6,7 +6,7 @@ import { Menu, X } from "lucide-react";
 import Marquee from "@/components/ui/marquee";
 
 const navLinks = [
-  { name: "Beranda", href: "#" },
+  { name: "Beranda", href: "#hero" },
   { name: "Tentang Kami", href: "#about" },
   { name: "Program", href: "#programs" },
   { name: "Laporan Infaq", href: "#infaq" },
@@ -27,21 +27,51 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const id = entry.target.id;
+            const activeLink = navLinks.find(link => link.href === `#${id}`);
+            if (activeLink) {
+              setActiveSection(activeLink.name);
+            }
+          }
+        });
+      },
+      { rootMargin: "-30% 0px -70% 0px" }
+    );
+
+    // Wait slightly for DOM to be fully loaded
+    setTimeout(() => {
+      const sections = navLinks.map(link => document.querySelector(link.href)).filter(Boolean);
+      sections.forEach(section => observer.observe(section!));
+    }, 100);
+
+    return () => observer.disconnect();
+  }, []);
+
   return (
     <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center">
       {/* Announcement Ticker */}
-      <div className="w-full bg-emerald-deep text-white text-xs font-medium tracking-wide">
+      <motion.div 
+        initial={false}
+        animate={{ height: isScrolled ? 0 : "auto", opacity: isScrolled ? 0 : 1 }}
+        transition={{ duration: 0.3 }}
+        className="w-full bg-emerald-deep text-white text-xs font-medium tracking-wide overflow-hidden"
+      >
         <Marquee className="py-1" pauseOnHover>
           <span className="mx-4">🕌 Mari salurkan infaq terbaik Anda untuk operasional Musholla</span>
-          <span className="mx-4">✨ Pengajian rutin setiap malam Jumat ba'da Maghrib</span>
+          <span className="mx-4">✨ Pengajian rutin setiap malam Jumat ba&apos;da Maghrib</span>
           <span className="mx-4">📅 Program TPA dibuka setiap hari Senin - Jumat</span>
         </Marquee>
-      </div>
+      </motion.div>
 
       {/* Main Navbar */}
       <nav
-        className={`w-full max-w-7xl mx-auto mt-4 px-6 py-3 transition-all duration-300 rounded-full flex items-center justify-between
-        ${isScrolled ? "bg-bg-primary/70 backdrop-blur-xl border border-white/10 shadow-lg" : "bg-transparent"}`}
+        className={`w-full max-w-7xl mx-auto px-6 py-3 transition-all duration-300 rounded-full flex items-center justify-between
+        ${isScrolled ? "bg-bg-primary/90 backdrop-blur-xl border border-white/10 shadow-lg mt-4" : "bg-transparent mt-4"}`}
       >
         <div className="flex items-center gap-2">
           <div className="w-8 h-8 rounded-full bg-emerald-primary flex items-center justify-center">

@@ -30,7 +30,7 @@ export default function InfaqReport() {
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-8">
           {/* Main Balance Card */}
-          <div className="glass-card p-8 lg:col-span-2 flex flex-col justify-center relative overflow-hidden">
+          <div className="bg-bg-secondary border border-white/10 rounded-2xl p-8 lg:col-span-2 flex flex-col justify-center relative overflow-hidden">
             <div className="absolute -right-10 -top-10 opacity-5">
               <Wallet size={200} />
             </div>
@@ -61,7 +61,7 @@ export default function InfaqReport() {
 
           {/* Income/Expense Cards */}
           <div className="flex flex-col gap-6">
-            <div className="glass-card p-6 flex-1 flex flex-col justify-center">
+            <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 flex-1 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-2">
                 <div className="p-2 bg-emerald-500/20 rounded-lg">
                   <ArrowDownRight className="text-emerald-light" size={20} />
@@ -73,7 +73,7 @@ export default function InfaqReport() {
               </div>
             </div>
             
-            <div className="glass-card p-6 flex-1 flex flex-col justify-center">
+            <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 flex-1 flex flex-col justify-center">
               <div className="flex items-center gap-2 mb-2">
                 <div className="p-2 bg-red-500/20 rounded-lg">
                   <ArrowUpRight className="text-red-400" size={20} />
@@ -87,14 +87,86 @@ export default function InfaqReport() {
           </div>
         </div>
 
-        <div className="flex justify-center mt-12">
-          <a href="#">
-            <HoverBorderGradient
-              className="bg-black text-white px-8 py-3 flex items-center gap-2"
-            >
-              <span>Salurkan Infaq Anda (WhatsApp)</span>
-            </HoverBorderGradient>
-          </a>
+        {/* CSS Chart & Monthly History */}
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-12">
+          {/* Bar Chart */}
+          <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6 flex flex-col">
+             <h3 className="text-xl font-bold text-white mb-8">Grafik Pemasukan vs Pengeluaran</h3>
+             <div className="flex-1 flex h-48 items-end gap-2 sm:gap-6 mt-auto">
+                {infaq.history.map((data, i) => {
+                  const maxVal = Math.max(...infaq.history.map(d => Math.max(d.income, d.expense)));
+                  const incomeHeight = `${(data.income / maxVal) * 100}%`;
+                  const expenseHeight = `${(data.expense / maxVal) * 100}%`;
+                  
+                  return (
+                    <div key={i} className="flex-1 flex flex-col items-center gap-3 group h-full">
+                      <div className="flex w-full items-end justify-center gap-1 h-full">
+                        <div className="w-1/2 sm:w-1/3 bg-emerald-primary rounded-t-sm relative group-hover:bg-emerald-light transition-colors" style={{ height: incomeHeight }}>
+                          <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-emerald-light opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">{(data.income / 1000000).toFixed(1)}M</span>
+                        </div>
+                        <div className="w-1/2 sm:w-1/3 bg-red-500 rounded-t-sm relative group-hover:bg-red-400 transition-colors" style={{ height: expenseHeight }}>
+                          <span className="absolute -top-6 left-1/2 -translate-x-1/2 text-[10px] text-red-400 opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">{(data.expense / 1000000).toFixed(1)}M</span>
+                        </div>
+                      </div>
+                      <span className="text-xs text-text-secondary font-medium">{data.month.split(' ')[0]}</span>
+                    </div>
+                  );
+                })}
+             </div>
+             <div className="flex justify-center gap-6 mt-8">
+               <div className="flex items-center gap-2">
+                 <div className="w-3 h-3 bg-emerald-primary rounded-sm" />
+                 <span className="text-xs text-text-secondary font-medium">Pemasukan</span>
+               </div>
+               <div className="flex items-center gap-2">
+                 <div className="w-3 h-3 bg-red-500 rounded-sm" />
+                 <span className="text-xs text-text-secondary font-medium">Pengeluaran</span>
+               </div>
+             </div>
+          </div>
+          
+          {/* Monthly Summary */}
+          <div className="bg-bg-secondary border border-white/10 rounded-2xl p-6">
+            <h3 className="text-xl font-bold text-white mb-6">Riwayat 4 Bulan Terakhir</h3>
+            <div className="space-y-4">
+               {infaq.history.slice().reverse().map((data, i) => (
+                 <div key={i} className="flex items-center justify-between p-4 bg-bg-primary rounded-xl border border-white/5">
+                   <div>
+                     <p className="font-medium text-white mb-1">{data.month}</p>
+                     <p className="text-xs">
+                       <span className="text-emerald-light">+ Rp {Intl.NumberFormat("id-ID").format(data.income)}</span>
+                       <span className="mx-2 text-white/20">|</span>
+                       <span className="text-red-400">- Rp {Intl.NumberFormat("id-ID").format(data.expense)}</span>
+                     </p>
+                   </div>
+                   <div className="text-right">
+                     <p className="text-xs text-text-secondary mb-1">Saldo Bersih</p>
+                     <p className="font-bold text-white">Rp {Intl.NumberFormat("id-ID").format(data.income - data.expense)}</p>
+                   </div>
+                 </div>
+               ))}
+            </div>
+          </div>
+        </div>
+
+        <div className="flex flex-col md:flex-row items-center justify-center gap-8 mt-12 p-8 bg-bg-secondary border border-emerald-primary/20 rounded-2xl">
+          <div className="text-center md:text-left">
+            <h3 className="text-2xl font-bold text-white mb-2">Salurkan Infaq Anda</h3>
+            <p className="text-text-secondary mb-6 max-w-md">Bantu operasional dan program musholla melalui transfer QRIS atau konfirmasi via WhatsApp.</p>
+            <a href="#">
+              <HoverBorderGradient
+                className="bg-black text-white px-8 py-3 flex items-center justify-center gap-2 mx-auto md:mx-0 w-full md:w-auto"
+              >
+                <span>Konfirmasi via WhatsApp</span>
+              </HoverBorderGradient>
+            </a>
+          </div>
+          <div className="flex flex-col items-center p-4 bg-white rounded-xl shadow-xl">
+             <div className="w-32 h-32 bg-gray-100 border border-gray-300 flex items-center justify-center mb-2">
+                <span className="text-gray-500 text-xs font-medium text-center">QR Code<br/>(Placeholder)</span>
+             </div>
+             <span className="text-black text-sm font-bold font-display tracking-wide">QRIS Musholla</span>
+          </div>
         </div>
       </div>
     </section>

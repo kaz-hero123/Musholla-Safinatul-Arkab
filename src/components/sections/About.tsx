@@ -7,12 +7,6 @@ import { History, Target, Users, Shield } from "lucide-react";
 export default function About() {
   return (
     <section id="about" className="py-24 px-6 relative bg-bg-primary overflow-hidden">
-      {/* Decorative SVG Pattern */}
-      <div 
-        className="absolute inset-0 opacity-10 z-0" 
-        style={{ backgroundImage: `url('/geometric.svg')`, backgroundSize: '150px' }} 
-      />
-
       <div className="max-w-7xl mx-auto relative z-10">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -29,7 +23,7 @@ export default function About() {
           </p>
         </motion.div>
 
-        <BentoGrid className="max-w-4xl mx-auto">
+        <BentoGrid className="max-w-7xl mx-auto grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
           {items.map((item, i) => (
             <motion.div
               key={i}
@@ -42,7 +36,6 @@ export default function About() {
               <BentoGridItem
                 title={item.title}
                 description={item.description}
-                header={item.header}
                 icon={item.icon}
                 className="h-full"
               />
@@ -58,25 +51,21 @@ const items = [
   {
     title: "Visi Kami",
     description: "Mewujudkan generasi muda Islam yang cinta masjid, berakhlak karimah, dan menjadi teladan di lingkungan masyarakat sekitar.",
-    header: <div className="absolute top-0 right-0 p-6 opacity-10"><Target size={120} /></div>,
     icon: <Target className="h-8 w-8 text-emerald-primary" />,
   },
   {
     title: "Sejarah Singkat",
     description: "Didirikan oleh para pemuda pemudi dengan semangat gotong royong.",
-    header: <div className="absolute -bottom-4 -right-4 opacity-10"><History size={80} /></div>,
     icon: <History className="h-6 w-6 text-emerald-primary" />,
   },
   {
     title: "Kepengurusan",
     description: "Dikelola sepenuhnya oleh Remaja Musholla (Remus) dengan bimbingan DKM.",
-    header: <div className="absolute -bottom-4 -right-4 opacity-10"><Users size={80} /></div>,
     icon: <Users className="h-6 w-6 text-emerald-primary" />,
   },
   {
     title: "Misi Utama",
-    description: "1. Menyelenggarakan kegiatan keagamaan rutin. 2. Membina TPA anak-anak. 3. Melaksanakan program sosial kemasyarakatan.",
-    header: <div className="absolute top-0 right-0 p-6 opacity-10"><Shield size={120} /></div>,
+    description: "1. Menyelenggarakan kegiatan keagamaan rutin.\n2. Membina TPA anak-anak.\n3. Melaksanakan program sosial kemasyarakatan.",
     icon: <Shield className="h-8 w-8 text-emerald-primary" />,
   },
 ];

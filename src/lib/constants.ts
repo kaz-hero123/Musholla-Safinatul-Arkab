@@ -1,4 +1,6 @@
-export const SITE_DATA = {
+import { SiteData } from "@/types";
+
+export const SITE_DATA: SiteData = {
   programs: [
     {
       id: "kajian",
@@ -39,6 +41,42 @@ export const SITE_DATA = {
     incomeThisMonth: 5200000,
     expenseThisMonth: 1750000,
     goal: 50000000, 
-    goalTitle: "Renovasi Area Wudhu"
-  }
+    goalTitle: "Renovasi Area Wudhu",
+    history: [
+      { month: "Mei 2026", income: 4500000, expense: 1200000 },
+      { month: "Juni 2026", income: 4800000, expense: 2100000 },
+      { month: "Juli 2026", income: 5100000, expense: 1500000 },
+      { month: "Agustus 2026", income: 5200000, expense: 1750000 }
+    ]
+  },
+  gallery: [
+    {
+      id: 1,
+      url: "https://images.unsplash.com/photo-1564507004663-b6dfb3c824d5?q=80&w=800&auto=format&fit=crop",
+      title: "Kajian Rutin Mingguan",
+      description: "Jamaah antusias mengikuti kajian tematik setiap malam Jumat.",
+      className: "md:col-span-2"
+    },
+    {
+      id: 2,
+      url: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=800&auto=format&fit=crop",
+      title: "Pendidikan TPA",
+      description: "Anak-anak belajar membaca Al-Quran dengan metode Iqra.",
+      className: "md:col-span-1"
+    },
+    {
+      id: 3,
+      url: "https://images.unsplash.com/photo-1574246604907-db69e30ddb97?q=80&w=800&auto=format&fit=crop",
+      title: "Kegiatan Sosial Berbagi",
+      description: "Distribusi sembako kepada warga sekitar yang membutuhkan.",
+      className: "md:col-span-1"
+    },
+    {
+      id: 4,
+      url: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=800&auto=format&fit=crop",
+      title: "Gotong Royong Bersih Musholla",
+      description: "Remaja musholla bergotong royong membersihkan area wudhu.",
+      className: "md:col-span-2"
+    }
+  ]
 };
