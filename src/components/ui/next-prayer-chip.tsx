@@ -63,7 +63,7 @@ export default function NextPrayerChip() {
       <div className="bg-bg-primary border border-border rounded-full px-6 py-4 flex items-center justify-between shadow-sm hover:border-emerald-primary hover:shadow-md transition-all">
         <div className="flex items-center gap-3">
           <MapPin size={18} className="text-text-secondary" />
-          <span className="text-sm font-medium text-text-primary hidden sm:inline">DKI Jakarta</span>
+          <span className="text-sm font-medium text-text-primary hidden sm:inline">Sidoarjo</span>
         </div>
         
         {nextPrayer ? (

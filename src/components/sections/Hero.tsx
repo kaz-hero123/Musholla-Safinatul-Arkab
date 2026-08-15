@@ -34,11 +34,12 @@ export default function Hero() {
         </div>
 
         {/* Photo Container */}
-        <div className="w-full max-w-5xl aspect-video md:aspect-[21/9] bg-bg-secondary border border-border rounded-3xl overflow-hidden flex flex-col items-center justify-center relative shadow-sm">
-          {/* Placeholder for real photo */}
-          <ImageIcon size={48} className="text-border mb-4 opacity-50" />
-          <p className="font-display font-medium text-text-secondary text-lg">Foto Jamaah / Kegiatan</p>
-          <p className="text-text-muted text-sm mt-1">Area untuk Authentic Photography</p>
+        <div className="w-full max-w-5xl aspect-video md:aspect-[21/9] bg-bg-secondary border border-border rounded-3xl overflow-hidden flex flex-col items-center justify-center relative shadow-sm group">
+          <img 
+            src="https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=2000&auto=format&fit=crop" 
+            alt="Musholla Safinatul Arkab" 
+            className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
+          />
         </div>
       </div>
     </section>

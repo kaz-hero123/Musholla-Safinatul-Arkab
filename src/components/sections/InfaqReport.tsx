@@ -95,7 +95,7 @@ export default function InfaqReport() {
             </p>
           </div>
           <div className="shrink-0 w-full md:w-auto">
-            <a href="https://wa.me/6281234567890" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-emerald-primary hover:bg-emerald-deep text-bg-primary font-medium px-8 py-4 rounded-xl transition-colors">
+            <a href="https://wa.me/6282143506574" target="_blank" rel="noopener noreferrer" className="block w-full text-center bg-emerald-primary hover:bg-emerald-deep text-bg-primary font-medium px-8 py-4 rounded-xl transition-colors">
               Konfirmasi via WhatsApp
             </a>
           </div>

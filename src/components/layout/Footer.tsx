@@ -57,12 +57,12 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-emerald-primary shrink-0 mt-0.5" />
                 <span className="text-text-secondary text-sm leading-relaxed">
-                  Jl. Contoh Jalan No.123, Kelurahan Contoh, Kecamatan Contoh, Kota Contoh 12345
+                  Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kabupaten Sidoarjo, Jawa Timur 61256
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-emerald-primary shrink-0" />
-                <span className="text-text-secondary text-sm">+62 812-3456-7890</span>
+                <span className="text-text-secondary text-sm">+62 821-4350-6574</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-emerald-primary shrink-0" />

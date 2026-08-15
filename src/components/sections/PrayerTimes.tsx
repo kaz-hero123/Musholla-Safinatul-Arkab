@@ -77,7 +77,7 @@ export default function PrayerTimes() {
           <div>
             <div className="flex items-center gap-2 text-text-secondary mb-2 uppercase text-sm tracking-wider font-semibold">
               <MapPin size={16} />
-              <span>DKI Jakarta & Sekitarnya</span>
+              <span>Sidoarjo & Sekitarnya</span>
             </div>
             <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary">Jadwal Waktu Shalat</h2>
           </div>

@@ -10,6 +10,7 @@ const plusJakarta = Plus_Jakarta_Sans({ subsets: ["latin"], variable: "--font-di
 const amiri = Amiri({ subsets: ["arabic"], weight: ["400", "700"], variable: "--font-amiri" });
 
 export const metadata: Metadata = {
+  metadataBase: new URL("https://safinatul-arkab.vercel.app"),
   title: "Musholla Safinatul Arkab",
   description: "Membangun Generasi Muda Beriman, Satu Langkah Menuju Kebaikan.",
   openGraph: {

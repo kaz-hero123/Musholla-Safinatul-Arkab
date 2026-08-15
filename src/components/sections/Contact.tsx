@@ -42,7 +42,7 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-text-primary mb-1">Lokasi</h3>
-                  <p className="text-text-secondary">Jl. Contoh Jalan No.123, Kelurahan, Kecamatan, Kota Jakarta, 12345</p>
+                  <p className="text-text-secondary">Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kab. Sidoarjo, Jawa Timur 61256</p>
                 </div>
               </div>
               
@@ -64,8 +64,8 @@ export default function Contact() {
                 </div>
                 <div>
                   <h3 className="font-bold text-text-primary mb-1">WhatsApp (Pengurus)</h3>
-                  <a href="#" className="text-text-secondary hover:text-emerald-primary transition-colors">
-                    +62 812 3456 7890
+                  <a href="https://wa.me/6282143506574" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-emerald-primary transition-colors">
+                    +62 821 4350 6574
                   </a>
                 </div>
               </div>
@@ -73,9 +73,8 @@ export default function Contact() {
           </div>
           
           <div className="rounded-3xl overflow-hidden border border-border h-[400px] lg:h-auto min-h-[400px] relative bg-bg-primary p-2 shadow-sm">
-            {/* // TODO: replace with real coordinates of the mosque */}
             <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d126920.24075736637!2d106.758749!3d-6.2297465!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x2e69f3e945e34b9d%3A0x5371bf0fdad786a2!2sJakarta%2C%20Daerah%20Khusus%20Ibukota%20Jakarta!5e0!3m2!1sid!2sid!4v1700000000000!5m2!1sid!2sid" 
+              src="https://maps.google.com/maps?q=Jl.%20Jati%20Sari%20Besar%20Gg.%20Langgar,%20Pepelegi,%20Kec.%20Waru,%20Kabupaten%20Sidoarjo&t=&z=16&ie=UTF8&iwloc=&output=embed" 
               width="100%" 
               height="100%" 
               style={{ border: 0, borderRadius: '1.2rem' }} 
@@ -89,7 +88,9 @@ export default function Contact() {
 
       {/* Floating WhatsApp FAB */}
       <a 
-        href="#" 
+        href="https://wa.me/6282143506574" 
+        target="_blank"
+        rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-emerald-primary text-bg-primary rounded-full shadow-lg hover:scale-105 hover:bg-emerald-deep transition-all duration-300"
         aria-label="Chat di WhatsApp"
       >
