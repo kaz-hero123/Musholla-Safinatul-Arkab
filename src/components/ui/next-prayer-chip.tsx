@@ -3,7 +3,6 @@ import React, { useEffect, useState } from "react";
 import { getPrayerTimes, PrayerTimes as PrayerTimesType } from "@/lib/prayer-api";
 import { BellRing, MapPin } from "lucide-react";
 import Link from "next/link";
-import { cn } from "@/lib/utils";
 
 export default function NextPrayerChip() {
   const [times, setTimes] = useState<PrayerTimesType | null>(null);
@@ -60,8 +59,8 @@ export default function NextPrayerChip() {
   };
 
   return (
-    <Link href="/jadwal-shalat" className="block max-w-xl mx-auto -mt-6 relative z-20 group">
-      <div className="bg-bg-secondary  border border-emerald-primary rounded-full px-6 py-3 flex items-center justify-between shadow-[0_0_20px_rgba(16,185,129,0.1)] group-hover:shadow-[0_0_30px_rgba(16,185,129,0.2)] group-hover:border-emerald-primary transition-all">
+    <Link href="/jadwal-shalat" className="block max-w-xl mx-auto -mt-8 relative z-20 group">
+      <div className="bg-bg-primary border border-border rounded-full px-6 py-4 flex items-center justify-between shadow-sm hover:border-emerald-primary hover:shadow-md transition-all">
         <div className="flex items-center gap-3">
           <MapPin size={18} className="text-text-secondary" />
           <span className="text-sm font-medium text-text-primary hidden sm:inline">DKI Jakarta</span>
@@ -70,10 +69,10 @@ export default function NextPrayerChip() {
         {nextPrayer ? (
           <div className="flex items-center gap-4">
             <div className="flex items-center gap-2">
-              <BellRing size={16} className="text-emerald-primary animate-pulse" />
+              <BellRing size={16} className="text-emerald-primary" />
               <span className="text-sm text-emerald-primary font-medium">{nextPrayer.name}</span>
             </div>
-            <div className="h-4 w-px bg-white/20"></div>
+            <div className="h-4 w-px bg-border"></div>
             <span className="text-sm font-bold text-text-primary tabular-nums">
               {formatCountdown(nextPrayer.diffMs)}
             </span>
