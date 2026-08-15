@@ -30,13 +30,13 @@ export default function SplashScreen({ children }: { children: React.ReactNode }
                 transition={{ duration: 0.5 }}
                 className="w-16 h-16 rounded-full bg-emerald-primary flex items-center justify-center shadow-[0_0_30px_rgba(16,185,129,0.5)]"
               >
-                <span className="text-white font-bold text-2xl">S</span>
+                <span className="text-text-primary font-bold text-2xl">S</span>
               </motion.div>
               <motion.p
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
                 transition={{ delay: 0.3 }}
-                className="text-emerald-light font-display tracking-widest text-sm font-medium"
+                className="text-emerald-primary font-display tracking-widest text-sm font-medium"
               >
                 SAFINATUL ARKAB
               </motion.p>

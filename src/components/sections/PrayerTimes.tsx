@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from "react";
 import { getPrayerTimes, PrayerTimes as PrayerTimesType } from "@/lib/prayer-api";
 import { Clock, MapPin, BellRing } from "lucide-react";
-import { motion } from "framer-motion";
 import { cn } from "@/lib/utils";
 
 export default function PrayerTimes() {
@@ -11,7 +10,6 @@ export default function PrayerTimes() {
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
 
   useEffect(() => {
-    // Only run on client to avoid hydration mismatch
     const timer = setInterval(() => setCurrentTime(new Date()), 1000);
     return () => clearInterval(timer);
   }, []);
@@ -23,7 +21,6 @@ export default function PrayerTimes() {
     });
   }, []);
 
-  // Derive nextPrayer directly during render
   let nextPrayer = null;
   if (times && currentTime) {
     const prayerList = [
@@ -74,36 +71,34 @@ export default function PrayerTimes() {
   ] : [];
 
   return (
-    <section className="py-24 px-6 bg-bg-secondary border-y border-white/5 relative overflow-hidden">
-      <div className="absolute -left-40 top-0 w-96 h-96 bg-emerald-primary/10 rounded-full blur-[100px]" />
-      
-      <div className="max-w-7xl mx-auto relative z-10">
-        <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-8 mb-10">
+    <section className="py-24 px-6 bg-bg-secondary border-t border-border">
+      <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-end justify-between border-b border-border pb-6 mb-12 gap-8">
           <div>
-            <h2 className="text-3xl font-display font-bold text-white mb-2">Jadwal Shalat</h2>
-            <div className="flex items-center gap-2 text-text-secondary">
+            <div className="flex items-center gap-2 text-text-secondary mb-2 uppercase text-sm tracking-wider font-semibold">
               <MapPin size={16} />
               <span>DKI Jakarta & Sekitarnya</span>
             </div>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary">Jadwal Waktu Shalat</h2>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <div className="bg-bg-secondary border border-white/10 rounded-2xl px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
+            <div className="bg-bg-primary border border-border rounded-xl px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
               <Clock className="text-text-secondary" />
               <div className="text-sm">
                 <p className="text-text-secondary">Waktu Saat Ini</p>
-                <p className="font-bold text-white tabular-nums tracking-wider text-lg">
+                <p className="font-bold text-text-primary tabular-nums tracking-wider text-lg">
                   {currentTime ? currentTime.toLocaleTimeString("id-ID", { hour: "2-digit", minute: "2-digit", second: "2-digit" }) : "--:--:--"} WIB
                 </p>
               </div>
             </div>
             
             {nextPrayer && (
-              <div className="glass-card border-emerald-primary/40 px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
-                <BellRing className="text-emerald-light animate-pulse" />
+              <div className="bg-emerald-primary/10 border border-emerald-primary/30 rounded-xl px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
+                <BellRing className="text-emerald-primary animate-pulse" />
                 <div className="text-sm">
-                  <p className="text-emerald-light font-medium">Menuju {nextPrayer.name}</p>
-                  <p className="font-bold text-white tabular-nums tracking-wider text-lg">
+                  <p className="text-emerald-primary font-medium">Menuju {nextPrayer.name}</p>
+                  <p className="font-bold text-text-primary tabular-nums tracking-wider text-lg">
                     {formatCountdown(nextPrayer.diffMs)}
                   </p>
                 </div>
@@ -113,41 +108,36 @@ export default function PrayerTimes() {
         </div>
 
         {loading ? (
-          <div className="h-32 flex items-center justify-center">
-            <div className="w-8 h-8 border-4 border-emerald-primary/30 border-t-emerald-primary rounded-full animate-spin" />
+          <div className="h-32 flex items-center justify-center text-text-secondary">
+            Memuat jadwal...
           </div>
         ) : (
-          <div className="flex overflow-x-auto pb-6 -mx-6 px-6 md:mx-0 md:px-0 md:grid md:grid-cols-5 gap-4 snap-x snap-mandatory hide-scrollbar">
-            {prayerList.map((prayer, i) => {
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+            {prayerList.map((prayer) => {
               const isActive = nextPrayer?.name === prayer.name;
               return (
-                <motion.div
+                <div
                   key={prayer.name}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: i * 0.1 }}
                   className={cn(
-                    "min-w-[160px] md:min-w-0 snap-center flex flex-col items-center justify-center p-6 rounded-2xl transition-all duration-300 relative overflow-hidden group",
+                    "flex flex-col items-center justify-center p-6 rounded-2xl border transition-all duration-300 relative overflow-hidden group",
                     isActive 
-                      ? "glass-card border-emerald-primary/50 shadow-[0_0_30px_rgba(16,185,129,0.15)] scale-105 md:scale-110 z-10" 
-                      : "bg-bg-secondary border border-white/10 hover:border-white/20"
+                      ? "bg-emerald-primary border-emerald-deep shadow-md scale-[1.02]" 
+                      : "bg-bg-primary border-border hover:border-emerald-primary/50"
                   )}
                 >
-                  {isActive && <div className="absolute inset-0 bg-emerald-primary/10 animate-pulse" />}
                   <span className={cn(
-                    "font-medium mb-2 relative z-10",
-                    isActive ? "text-emerald-light" : "text-text-secondary group-hover:text-white transition-colors"
+                    "font-medium mb-2",
+                    isActive ? "text-bg-primary/90" : "text-text-secondary"
                   )}>
                     {prayer.name}
                   </span>
                   <span className={cn(
-                    "text-3xl font-bold font-display tabular-nums relative z-10",
-                    isActive ? "text-white" : "text-emerald-light/70"
+                    "text-3xl md:text-4xl font-bold font-display tabular-nums",
+                    isActive ? "text-bg-primary" : "text-text-primary"
                   )}>
                     {prayer.time}
                   </span>
-                </motion.div>
+                </div>
               );
             })}
           </div>
