@@ -15,7 +15,7 @@ export default function PrayerTimes() {
   }, []);
 
   useEffect(() => {
-    getPrayerTimes().then(data => {
+    getPrayerTimes("Sidoarjo").then(data => {
       setTimes(data);
       setLoading(false);
     });

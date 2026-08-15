@@ -14,7 +14,7 @@ export default function NextPrayerChip() {
   }, []);
 
   useEffect(() => {
-    getPrayerTimes().then(data => setTimes(data));
+    getPrayerTimes("Sidoarjo").then(data => setTimes(data));
   }, []);
 
   let nextPrayer = null;
