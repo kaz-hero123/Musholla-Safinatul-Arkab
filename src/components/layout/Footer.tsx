@@ -1,61 +1,87 @@
 import React from "react";
-import { Phone } from "lucide-react";
 import Link from "next/link";
+import { MapPin, Phone, Mail } from "lucide-react";
+
+const Instagram = ({ size = 24, className = "" }) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    strokeWidth="2"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    className={className}
+  >
+    <rect width="20" height="20" x="2" y="2" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" x2="17.51" y1="6.5" y2="6.5" />
+  </svg>
+);
 
 export default function Footer() {
   return (
-    <footer className="w-full pt-16 pb-8 px-6 border-t border-border bg-gradient-to-b from-bg-primary to-bg-tertiary">
-      <div className="max-w-7xl mx-auto">
+    <footer className="bg-bg-secondary border-t border-border pt-16 pb-8">
+      <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          <div className="md:col-span-2">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 rounded-full bg-emerald-primary flex items-center justify-center">
-                <span className="text-text-primary font-bold text-xl">S</span>
+          {/* Brand */}
+          <div className="md:col-span-1">
+            <Link href="/" className="flex items-center gap-3 mb-6">
+              <div className="w-10 h-10 rounded-full bg-emerald-primary flex items-center justify-center text-bg-primary font-bold text-xl">
+                S
               </div>
-              <span className="font-display font-bold text-xl text-text-primary">Safinatul Arkab</span>
-            </div>
-            <p className="text-text-secondary mb-6 max-w-sm">
-              Membangun Generasi Muda Beriman, Satu Langkah Menuju Kebaikan. Pusat pembinaan generasi muda Islam yang berakhlak mulia.
+              <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
+            </Link>
+            <p className="text-text-secondary text-sm leading-relaxed mb-6">
+              Pusat pembinaan generasi muda Islam yang berakhlak mulia, mandiri, dan bermanfaat bagi masyarakat sekitar.
             </p>
-            <div className="flex gap-4">
-              <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noreferrer" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-text-secondary hover:text-emerald-primary hover:bg-emerald-primary/20 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-text-secondary hover:text-emerald-primary hover:bg-emerald-primary/20 transition-all">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M2.5 17a24.12 24.12 0 0 1 0-10 2 2 0 0 1 1.4-1.4 49.56 49.56 0 0 1 16.2 0A2 2 0 0 1 21.5 7a24.12 24.12 0 0 1 0 10 2 2 0 0 1-1.4 1.4 49.55 49.55 0 0 1-16.2 0A2 2 0 0 1 2.5 17"/><path d="m10 15 5-3-5-3z"/></svg>
-              </a>
-              <a href="#" className="w-10 h-10 rounded-full bg-white border border-border flex items-center justify-center text-text-secondary hover:text-emerald-primary hover:bg-emerald-primary/20 transition-all">
-                <Phone size={18} />
-              </a>
-            </div>
           </div>
-          
+
+          {/* Quick Links */}
           <div>
-            <h3 className="font-bold text-text-primary mb-4">Navigasi Cepat</h3>
-            <ul className="space-y-2 text-text-secondary">
-              <li><Link href="/" className="hover:text-emerald-primary transition-colors">Beranda</Link></li>
-              <li><Link href="/tentang" className="hover:text-emerald-primary transition-colors">Tentang Kami</Link></li>
-              <li><Link href="/program" className="hover:text-emerald-primary transition-colors">Program</Link></li>
-              <li><Link href="/infaq" className="hover:text-emerald-primary transition-colors">Laporan Infaq</Link></li>
+            <h3 className="font-display font-bold text-text-primary mb-6">Navigasi</h3>
+            <ul className="space-y-4">
+              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Tentang Kami</Link></li>
+              <li><Link href="/program" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Program Rutin</Link></li>
+              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Laporan Infaq</Link></li>
+              <li><Link href="/jadwal-shalat" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Jadwal Shalat</Link></li>
             </ul>
           </div>
-          
-          <div>
-            <h3 className="font-bold text-text-primary mb-4">Informasi</h3>
-            <ul className="space-y-2 text-text-secondary">
-              <li><Link href="/galeri" className="hover:text-emerald-primary transition-colors">Galeri</Link></li>
-              <li><Link href="/kontak" className="hover:text-emerald-primary transition-colors">Kontak</Link></li>
+
+          {/* Contact Info */}
+          <div className="md:col-span-2">
+            <h3 className="font-display font-bold text-text-primary mb-6">Kontak & Lokasi</h3>
+            <ul className="space-y-4">
+              <li className="flex items-start gap-3">
+                <MapPin size={20} className="text-emerald-primary shrink-0 mt-0.5" />
+                <span className="text-text-secondary text-sm leading-relaxed">
+                  Jl. Contoh Jalan No.123, Kelurahan Contoh, Kecamatan Contoh, Kota Contoh 12345
+                </span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Phone size={20} className="text-emerald-primary shrink-0" />
+                <span className="text-text-secondary text-sm">+62 812-3456-7890</span>
+              </li>
+              <li className="flex items-center gap-3">
+                <Mail size={20} className="text-emerald-primary shrink-0" />
+                <span className="text-text-secondary text-sm">info@safinatularkab.or.id</span>
+              </li>
             </ul>
           </div>
         </div>
-        
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-text-muted text-sm text-center md:text-left">
-            © {new Date().getFullYear()} Remaja Musholla Safinatul Arkab. All rights reserved.
+
+        {/* Bottom Bar */}
+        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
+          <p className="text-text-muted text-sm">
+            &copy; {new Date().getFullYear()} Remaja Musholla Safinatul Arkab. All rights reserved.
           </p>
-          <p className="text-text-muted text-sm flex items-center gap-1">
-            Made with <span className="text-red-500">♥</span> by Remus Safinatul Arkab
-          </p>
+          <div className="flex items-center gap-4">
+            <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-bg-primary border border-border flex items-center justify-center text-text-secondary hover:text-emerald-primary hover:border-emerald-primary transition-all" aria-label="Instagram">
+              <Instagram size={18} />
+            </a>
+          </div>
         </div>
       </div>
     </footer>
