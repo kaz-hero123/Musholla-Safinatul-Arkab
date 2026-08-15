@@ -1,7 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -30,62 +29,47 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className="fixed top-0 left-0 right-0 z-50 flex flex-col items-center">
-      {/* Main Navbar */}
-      <nav
-        className={`w-full max-w-7xl mx-auto px-6 py-3 transition-all duration-300 rounded-full flex items-center justify-between
-        ${isScrolled ? "bg-bg-primary/90  border border-border shadow-lg mt-4" : "bg-transparent mt-4"}`}
-      >
-        <Link href="/" className="flex items-center gap-2">
-          <div className="w-8 h-8 rounded-full bg-emerald-primary flex items-center justify-center">
-            <span className="text-text-primary font-bold text-lg">S</span>
+    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-bg-primary shadow-sm border-b border-border py-3" : "bg-bg-primary py-5"}`}>
+      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
+        <Link href="/" className="flex items-center gap-3">
+          <div className="w-10 h-10 rounded-full bg-emerald-primary flex items-center justify-center text-bg-primary font-bold text-xl">
+            S
           </div>
-          <span className="font-display font-bold text-lg text-text-primary">Safinatul Arkab</span>
+          <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
         </Link>
 
         {/* Desktop Nav */}
-        <div className="hidden md:flex items-center gap-1 bg-white rounded-full p-1 border border-border">
+        <nav className="hidden md:flex items-center gap-2">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`relative px-4 py-2 text-sm font-medium transition-colors rounded-full ${
-                  isActive ? "text-text-primary" : "text-text-secondary hover:text-text-primary"
+                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
+                  isActive ? "bg-emerald-primary/10 text-emerald-deep" : "text-text-secondary hover:bg-bg-secondary hover:text-text-primary"
                 }`}
               >
-                {isActive && (
-                  <motion.div
-                    layoutId="active-nav"
-                    className="absolute inset-0 bg-white/10 rounded-full"
-                    transition={{ type: "spring", stiffness: 380, damping: 30 }}
-                  />
-                )}
-                <span className="relative z-10">{link.name}</span>
+                {link.name}
               </Link>
             );
           })}
-        </div>
+        </nav>
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-text-primary p-2"
+          className="md:hidden text-text-primary p-2 focus:outline-none"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+          aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
         </button>
-      </nav>
+      </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -20 }}
-            className="absolute top-full left-0 right-0 mt-2 mx-4 p-4 rounded-2xl bg-bg-secondary  border border-border flex flex-col gap-4 shadow-2xl md:hidden"
-          >
+      {isMobileMenuOpen && (
+        <div className="absolute top-full left-0 right-0 bg-bg-primary border-b border-border shadow-xl md:hidden">
+          <nav className="flex flex-col p-4 gap-2">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -93,19 +77,19 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`p-3 rounded-xl text-center font-medium ${
+                  className={`p-4 rounded-xl text-lg font-medium transition-colors ${
                     isActive
-                      ? "bg-emerald-primary/20 text-emerald-primary"
-                      : "text-text-secondary"
+                      ? "bg-emerald-primary/10 text-emerald-deep"
+                      : "text-text-secondary active:bg-bg-secondary"
                   }`}
                 >
                   {link.name}
                 </Link>
               );
             })}
-          </motion.div>
-        )}
-      </AnimatePresence>
+          </nav>
+        </div>
+      )}
     </header>
   );
 }
