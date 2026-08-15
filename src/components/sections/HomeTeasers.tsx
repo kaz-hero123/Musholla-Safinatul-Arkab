@@ -10,10 +10,10 @@ export default function HomeTeasers() {
     <section className="py-24 px-6 bg-bg-primary">
       <div className="max-w-7xl mx-auto">
         
-        {/* Varied Header Layout (No colored keyword, left-aligned, border separation) */}
+        {/* Header Layout */}
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-12 border-b border-border pb-6 gap-4">
           <div>
-            <h2 className="text-4xl font-display font-bold text-text-primary tracking-tight">Eksplorasi</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary tracking-tight">Eksplorasi</h2>
             <p className="text-text-secondary mt-2 text-lg">Pusat informasi, jadwal, dan dokumentasi kegiatan musholla.</p>
           </div>
         </div>
@@ -40,17 +40,16 @@ export default function HomeTeasers() {
 
           {/* Galeri - Visual Lead (col-span-4) */}
           <Link href="/galeri" className="md:col-span-3 lg:col-span-4 group relative rounded-3xl bg-bg-secondary border border-border hover:border-emerald-primary transition-colors flex flex-col overflow-hidden">
-            <div className="h-40 w-full relative overflow-hidden">
+            <div className="h-40 w-full relative overflow-hidden bg-bg-tertiary">
                <img 
-                 src={gallery[0].url} 
+                 src={gallery[0]?.url || ""} 
                  alt="Galeri Thumbnail" 
-                 className="object-cover w-full h-full opacity-60 group-hover:opacity-90 group-hover:scale-105 transition-all duration-500"
+                 className="object-cover w-full h-full opacity-80 group-hover:opacity-100 transition-opacity duration-300"
                />
-               <div className="absolute inset-0 bg-gradient-to-t from-bg-secondary to-transparent" />
             </div>
-            <div className="p-8 pt-0 flex-grow flex flex-col justify-end">
+            <div className="p-8 flex-grow flex flex-col justify-end bg-bg-secondary">
               <h3 className="text-2xl font-bold text-text-primary font-display mb-2">Galeri Kegiatan</h3>
-              <div className="flex items-center justify-between text-sm font-medium text-emerald-primary">
+              <div className="flex items-center justify-between text-sm font-medium text-emerald-primary mt-auto">
                 <span>Lihat Dokumentasi</span>
                 <ArrowRight size={16} className="group-hover:translate-x-1 transition-transform" />
               </div>
@@ -81,7 +80,7 @@ export default function HomeTeasers() {
 
           {/* Tentang Kami - Text Lead (col-span-6) */}
           <Link href="/tentang" className="md:col-span-3 lg:col-span-6 group relative rounded-3xl p-8 bg-bg-secondary border border-border hover:border-emerald-primary transition-colors flex items-center gap-6">
-             <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 flex items-center justify-center text-emerald-primary flex-shrink-0 group-hover:bg-emerald-primary/20 transition-colors">
+             <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 flex items-center justify-center text-emerald-primary flex-shrink-0">
                <Info size={28} />
              </div>
              <div className="flex-grow">
@@ -93,7 +92,7 @@ export default function HomeTeasers() {
 
           {/* Program - Text Lead (col-span-6) */}
           <Link href="/program" className="md:col-span-3 lg:col-span-6 group relative rounded-3xl p-8 bg-bg-secondary border border-border hover:border-emerald-primary transition-colors flex items-center gap-6">
-             <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 flex items-center justify-center text-emerald-primary flex-shrink-0 group-hover:bg-emerald-primary/20 transition-colors">
+             <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 flex items-center justify-center text-emerald-primary flex-shrink-0">
                <Calendar size={28} />
              </div>
              <div className="flex-grow">
