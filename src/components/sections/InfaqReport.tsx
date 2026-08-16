@@ -86,6 +86,26 @@ export default function InfaqReport() {
           </div>
         </div>
 
+        {/* Narrative Impact Section */}
+        <div className="bg-emerald-primary/10 border border-emerald-primary/20 rounded-3xl p-8 mb-12">
+          <div className="flex flex-col md:flex-row gap-6 items-start">
+            <div className="p-4 bg-bg-primary rounded-2xl shrink-0">
+              <BadgeCheck className="text-emerald-primary w-8 h-8" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-xl text-text-primary mb-3">Catatan Penyaluran Bulan Lalu</h3>
+              <p className="text-text-secondary leading-relaxed mb-4">
+                Alhamdulillah, berkat partisipasi aktif jamaah, dana infaq bulan lalu telah sukses disalurkan untuk dua program utama: pemeliharaan fasilitas ibadah (termasuk servis rutin AC dan penggantian lampu sorot utama) serta pendistribusian 50 paket sembako Jumat Berkah kepada warga lansia di wilayah Pepelegi.
+              </p>
+              <div className="flex flex-wrap gap-3">
+                <span className="text-xs font-semibold bg-bg-primary px-3 py-1.5 rounded-lg border border-emerald-primary/20 text-emerald-deep">Servis Fasilitas</span>
+                <span className="text-xs font-semibold bg-bg-primary px-3 py-1.5 rounded-lg border border-emerald-primary/20 text-emerald-deep">Santunan Lansia</span>
+                <span className="text-xs font-semibold bg-bg-primary px-3 py-1.5 rounded-lg border border-emerald-primary/20 text-emerald-deep">Jumat Berkah</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
         {/* CTA */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-8 mt-12 p-8 md:p-10 bg-bg-secondary border border-border rounded-3xl">
           <div>

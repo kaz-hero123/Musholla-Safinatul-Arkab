@@ -5,22 +5,22 @@ export default function About() {
   const items = [
     {
       title: "Visi Kami",
-      description: "Mewujudkan generasi muda Islam yang cinta masjid, berakhlak karimah, dan menjadi teladan di lingkungan masyarakat sekitar.",
+      description: "Menjadi pusat ibadah dan pembinaan umat yang inklusif, mencetak generasi muda Islam yang berakhlak mulia, berwawasan luas, serta mampu memberikan kontribusi positif bagi kemajuan masyarakat di era modern.",
       icon: <Target className="h-8 w-8 text-emerald-primary" />,
     },
     {
       title: "Sejarah Singkat",
-      description: "Didirikan oleh para pemuda pemudi dengan semangat gotong royong dan tekad untuk memakmurkan musholla.",
+      description: "Didirikan pada tahun 1998 atas inisiatif tokoh masyarakat Pepelegi. Berawal dari langgar kayu sederhana, musholla ini terus berkembang berkat gotong royong warga, hingga kini memiliki fasilitas modern untuk ibadah dan pendidikan.",
       icon: <History className="h-6 w-6 text-emerald-primary" />,
     },
     {
       title: "Kepengurusan",
-      description: "Dikelola sepenuhnya oleh Remaja Musholla (Remus) dengan bimbingan dan arahan DKM setempat.",
+      description: "Sinergi yang harmonis antara Dewan Kemakmuran Masjid (DKM) yang diketuai oleh H. Ahmad Rifa'i, dan semangat muda dari Remaja Musholla (Remus) di bawah koordinasi Sdr. Muhammad Fadhil, memastikan program berjalan progresif.",
       icon: <Users className="h-6 w-6 text-emerald-primary" />,
     },
     {
       title: "Misi Utama",
-      description: "1. Menyelenggarakan kegiatan keagamaan rutin.\n2. Membina TPA anak-anak.\n3. Melaksanakan program sosial kemasyarakatan.",
+      description: "1. Menyelenggarakan ibadah jamaah dan kajian keislaman yang rutin.\n2. Mengelola TPQ untuk memberantas buta huruf Al-Quran sejak dini.\n3. Menggerakkan program sosial-ekonomi berbasis infaq untuk kesejahteraan warga sekitar.",
       icon: <Shield className="h-8 w-8 text-emerald-primary" />,
     },
   ];

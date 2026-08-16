@@ -43,10 +43,11 @@ export default function Footer() {
           <div>
             <h3 className="font-display font-bold text-text-primary mb-6">Navigasi</h3>
             <ul className="space-y-4">
-              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Tentang Kami</Link></li>
-              <li><Link href="/program" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Program Rutin</Link></li>
-              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Laporan Infaq</Link></li>
-              <li><Link href="/jadwal-shalat" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Jadwal Shalat</Link></li>
+              <li><Link href="/" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Beranda</Link></li>
+              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Tentang</Link></li>
+              <li><Link href="/kegiatan" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kegiatan</Link></li>
+              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Infaq</Link></li>
+              <li><Link href="/kontak" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kontak</Link></li>
             </ul>
           </div>
 
