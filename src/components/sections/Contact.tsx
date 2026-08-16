@@ -1,5 +1,8 @@
 import React from "react";
 import { MapPin, Phone, MessageCircle } from "lucide-react";
+import { SectionHeader } from "@/components/ui/section-header";
+import { Card, CardContent } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
 
 const Instagram = ({ size = 24, className = "" }) => (
   <svg
@@ -23,65 +26,89 @@ const Instagram = ({ size = 24, className = "" }) => (
 export default function Contact() {
   return (
     <>
-      <section className="py-24 px-6 bg-bg-secondary border-t border-border">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16">
-          <div className="bg-bg-primary border border-border rounded-3xl p-8 lg:p-12">
-            <div className="mb-10 border-b border-border pb-6">
-              <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-2 tracking-tight">
-                Hubungi Kami
-              </h2>
-              <p className="text-text-secondary text-lg">
-                Pintu Musholla selalu terbuka untuk kolaborasi & pertanyaan.
-              </p>
+      <section className="py-24 md:py-32 px-6 bg-bg-secondary relative">
+        <div className="max-w-7xl mx-auto">
+          <SectionHeader 
+            title="Hubungi Kami"
+            subtitle="Pintu Musholla selalu terbuka untuk jamaah, kolaborasi, dan pertanyaan. Kami siap melayani."
+            badge="Silaturahmi"
+            BadgeIcon={MessageCircle}
+            alignment="center"
+          />
+
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mt-16">
+            {/* Contact Info Cards */}
+            <div className="space-y-6">
+              <Card className="card-premium">
+                <CardContent className="p-8 flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 border border-emerald-primary/20 text-emerald-primary flex items-center justify-center shrink-0">
+                    <MapPin size={28} />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-xl text-text-primary mb-2">Lokasi</h3>
+                    <p className="text-text-secondary leading-relaxed">
+                      Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kab. Sidoarjo, Jawa Timur 61256
+                    </p>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-premium">
+                <CardContent className="p-8 flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 border border-emerald-primary/20 text-emerald-primary flex items-center justify-center shrink-0">
+                    <Phone size={28} />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-xl text-text-primary mb-2">WhatsApp Pengurus</h3>
+                    <a href="https://wa.me/6282143506574" target="_blank" rel="noopener noreferrer" className="text-emerald-primary hover:text-emerald-deep font-medium transition-colors text-lg inline-block mb-4">
+                      +62 821 4350 6574
+                    </a>
+                    <div>
+                      <Button asChild variant="outline" size="sm">
+                        <a href="https://wa.me/6282143506574" target="_blank" rel="noopener noreferrer">
+                          Mulai Chat
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
+
+              <Card className="card-premium">
+                <CardContent className="p-8 flex items-start gap-6">
+                  <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 border border-emerald-primary/20 text-emerald-primary flex items-center justify-center shrink-0">
+                    <Instagram size={28} />
+                  </div>
+                  <div>
+                    <h3 className="font-display font-bold text-xl text-text-primary mb-2">Instagram</h3>
+                    <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noreferrer" className="text-emerald-primary hover:text-emerald-deep font-medium transition-colors text-lg inline-block mb-4">
+                      @remussafinatularkab
+                    </a>
+                    <div>
+                      <Button asChild variant="outline" size="sm">
+                        <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noreferrer">
+                          Follow Kami
+                        </a>
+                      </Button>
+                    </div>
+                  </div>
+                </CardContent>
+              </Card>
             </div>
             
-            <div className="space-y-8">
-              <div className="flex items-start gap-4 group">
-                <div className="p-3 bg-bg-secondary border border-border rounded-2xl text-emerald-primary">
-                  <MapPin size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-text-primary mb-1">Lokasi</h3>
-                  <p className="text-text-secondary">Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kab. Sidoarjo, Jawa Timur 61256</p>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 group">
-                <div className="p-3 bg-bg-secondary border border-border rounded-2xl text-emerald-primary">
-                  <Instagram size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-text-primary mb-1">Instagram</h3>
-                  <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noreferrer" className="text-text-secondary hover:text-emerald-primary transition-colors">
-                    @remussafinatularkab
-                  </a>
-                </div>
-              </div>
-              
-              <div className="flex items-start gap-4 group">
-                <div className="p-3 bg-bg-secondary border border-border rounded-2xl text-emerald-primary">
-                  <Phone size={24} />
-                </div>
-                <div>
-                  <h3 className="font-bold text-text-primary mb-1">WhatsApp (Pengurus)</h3>
-                  <a href="https://wa.me/6282143506574" target="_blank" rel="noopener noreferrer" className="text-text-secondary hover:text-emerald-primary transition-colors">
-                    +62 821 4350 6574
-                  </a>
-                </div>
-              </div>
+            {/* Map */}
+            <div className="rounded-3xl overflow-hidden border border-border h-[500px] lg:h-full min-h-[500px] relative bg-white p-2 shadow-sm">
+              <iframe 
+                src="https://maps.google.com/maps?q=Jl.%20Jati%20Sari%20Besar%20Gg.%20Langgar,%20Pepelegi,%20Kec.%20Waru,%20Kabupaten%20Sidoarjo&t=&z=16&ie=UTF8&iwloc=&output=embed" 
+                width="100%" 
+                height="100%" 
+                style={{ border: 0, borderRadius: '1.2rem' }} 
+                allowFullScreen={false} 
+                loading="lazy" 
+                referrerPolicy="no-referrer-when-downgrade"
+                title="Peta Lokasi Musholla"
+              ></iframe>
             </div>
-          </div>
-          
-          <div className="rounded-3xl overflow-hidden border border-border h-[400px] lg:h-auto min-h-[400px] relative bg-bg-primary p-2 shadow-sm">
-            <iframe 
-              src="https://maps.google.com/maps?q=Jl.%20Jati%20Sari%20Besar%20Gg.%20Langgar,%20Pepelegi,%20Kec.%20Waru,%20Kabupaten%20Sidoarjo&t=&z=16&ie=UTF8&iwloc=&output=embed" 
-              width="100%" 
-              height="100%" 
-              style={{ border: 0, borderRadius: '1.2rem' }} 
-              allowFullScreen={false} 
-              loading="lazy" 
-              referrerPolicy="no-referrer-when-downgrade"
-            ></iframe>
           </div>
         </div>
       </section>
@@ -91,10 +118,10 @@ export default function Contact() {
         href="https://wa.me/6282143506574" 
         target="_blank"
         rel="noopener noreferrer"
-        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-14 h-14 bg-emerald-primary text-bg-primary rounded-full shadow-lg hover:scale-105 hover:bg-emerald-deep transition-all duration-300"
+        className="fixed bottom-6 right-6 z-50 flex items-center justify-center w-16 h-16 bg-emerald-primary text-white rounded-full shadow-lg hover:shadow-xl hover:-translate-y-1 hover:bg-emerald-deep transition-all duration-300"
         aria-label="Chat di WhatsApp"
       >
-        <MessageCircle size={28} className="relative z-10" />
+        <MessageCircle size={32} className="relative z-10" />
       </a>
     </>
   );
