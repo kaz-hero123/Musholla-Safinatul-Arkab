@@ -4,15 +4,15 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "@/lib/utils"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-medium ring-offset-bg-primary transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-emerald-primary focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-sm text-sm font-medium transition-all focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-emerald-primary disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-emerald-primary text-white hover:bg-emerald-deep shadow-sm hover:shadow-md",
+        default: "bg-emerald-primary text-white hover:bg-emerald-deep",
         destructive: "bg-red-500 text-white hover:bg-red-600",
-        outline: "border border-emerald-primary/30 bg-transparent text-emerald-primary hover:bg-emerald-primary/5 hover:border-emerald-primary/50",
-        secondary: "bg-bg-secondary text-text-primary hover:bg-emerald-primary/10 hover:text-emerald-deep",
-        ghost: "hover:bg-bg-secondary hover:text-text-primary text-text-secondary",
+        outline: "border border-border bg-transparent text-text-primary hover:border-emerald-primary hover:text-emerald-primary",
+        secondary: "bg-bg-secondary text-text-primary hover:bg-border",
+        ghost: "hover:bg-bg-secondary text-text-secondary hover:text-text-primary",
         link: "text-emerald-primary underline-offset-4 hover:underline",
       },
       size: {
