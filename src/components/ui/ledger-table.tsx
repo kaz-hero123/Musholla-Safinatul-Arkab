@@ -8,10 +8,10 @@ interface LedgerTableProps {
 
 export function LedgerTable({ history }: LedgerTableProps) {
   return (
-    <div className="w-full overflow-hidden rounded-3xl border border-border bg-white shadow-sm">
+    <div className="w-full overflow-hidden border border-border bg-bg-primary">
       <div className="overflow-x-auto">
         <table className="w-full text-left text-sm">
-          <thead className="bg-bg-secondary border-b border-border text-text-secondary">
+          <thead className="bg-bg-secondary border-b border-border text-text-secondary text-xs uppercase tracking-widest">
             <tr>
               <th className="px-6 py-4 font-medium">Bulan</th>
               <th className="px-6 py-4 font-medium">Keterangan</th>
