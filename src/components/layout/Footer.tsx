@@ -29,9 +29,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-emerald-primary flex items-center justify-center text-bg-primary font-bold text-xl">
-                S
-              </div>
+              <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight">S.</span>
               <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-6">
@@ -44,10 +42,10 @@ export default function Footer() {
             <h3 className="font-display font-bold text-text-primary mb-6">Navigasi</h3>
             <ul className="space-y-4">
               <li><Link href="/" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Beranda</Link></li>
-              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Tentang</Link></li>
-              <li><Link href="/kegiatan" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kegiatan</Link></li>
-              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Infaq</Link></li>
-              <li><Link href="/kontak" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kontak</Link></li>
+              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kisah Kami</Link></li>
+              <li><Link href="/kegiatan" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Pendidikan & Sosial</Link></li>
+              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Laporan Amanah</Link></li>
+              <li><Link href="/kontak" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kunjungi Kami</Link></li>
             </ul>
           </div>
 

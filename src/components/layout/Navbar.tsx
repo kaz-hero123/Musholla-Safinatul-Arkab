@@ -7,10 +7,10 @@ import { usePathname } from "next/navigation";
 
 const navLinks = [
   { name: "Beranda", href: "/" },
-  { name: "Tentang", href: "/tentang" },
-  { name: "Kegiatan", href: "/kegiatan" },
-  { name: "Infaq", href: "/infaq" },
-  { name: "Kontak", href: "/kontak" },
+  { name: "Kisah Kami", href: "/tentang" },
+  { name: "Pendidikan & Sosial", href: "/kegiatan" },
+  { name: "Laporan Amanah", href: "/infaq" },
+  { name: "Kunjungi Kami", href: "/kontak" },
 ];
 
 export default function Navbar() {
@@ -30,9 +30,7 @@ export default function Navbar() {
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-bg-primary shadow-sm border-b border-border py-3" : "bg-bg-primary py-5"}`}>
       <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
         <Link href="/" className="flex items-center gap-3">
-          <div className="w-10 h-10 rounded-full bg-emerald-primary flex items-center justify-center text-bg-primary font-bold text-xl">
-            S
-          </div>
+          <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight">S.</span>
           <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
         </Link>
 
@@ -44,8 +42,8 @@ export default function Navbar() {
               <Link
                 key={link.name}
                 href={link.href}
-                className={`px-4 py-2 text-sm font-medium rounded-full transition-colors ${
-                  isActive ? "bg-emerald-primary/10 text-emerald-deep" : "text-text-secondary hover:bg-bg-secondary hover:text-text-primary"
+                className={`px-2 py-2 text-sm font-medium transition-colors border-b-2 ${
+                  isActive ? "border-emerald-primary text-text-primary" : "border-transparent text-text-secondary hover:text-text-primary"
                 }`}
               >
                 {link.name}
@@ -75,10 +73,10 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`p-4 rounded-xl text-lg font-medium transition-colors ${
+                  className={`p-4 text-lg font-medium transition-colors border-l-4 ${
                     isActive
-                      ? "bg-emerald-primary/10 text-emerald-deep"
-                      : "text-text-secondary active:bg-bg-secondary"
+                      ? "border-emerald-primary text-emerald-deep bg-bg-secondary"
+                      : "border-transparent text-text-secondary hover:bg-bg-secondary"
                   }`}
                 >
                   {link.name}
