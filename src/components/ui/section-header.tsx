@@ -31,12 +31,12 @@ export function SectionHeader({
       {badge && (
         <div 
           className={cn(
-            "inline-flex items-center gap-2 mb-4 px-4 py-1.5 rounded-full border border-emerald-primary/20 bg-emerald-primary/5",
+            "inline-flex items-center gap-2 mb-4",
             alignment === "center" && "mx-auto justify-center"
           )}
         >
           {BadgeIcon && <BadgeIcon className="text-emerald-primary w-4 h-4" />}
-          <span className="text-emerald-primary text-sm font-bold tracking-wide uppercase">
+          <span className="text-emerald-primary text-xs font-bold tracking-widest uppercase">
             {badge}
           </span>
         </div>
