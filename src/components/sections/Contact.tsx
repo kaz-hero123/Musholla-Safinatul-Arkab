@@ -39,9 +39,8 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mt-16">
             {/* Contact Info Cards */}
             <div className="space-y-6">
-              <Card className="card-premium">
-                <CardContent className="p-8 flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 border border-emerald-primary/20 text-emerald-primary flex items-center justify-center shrink-0">
+              <div className="border border-border bg-bg-primary p-8 flex items-start gap-6">
+                <div className="w-12 h-12 border-b-2 border-emerald-primary text-emerald-primary flex items-center justify-center shrink-0">
                     <MapPin size={28} />
                   </div>
                   <div>
@@ -50,14 +49,12 @@ export default function Contact() {
                       Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kab. Sidoarjo, Jawa Timur 61256
                     </p>
                   </div>
-                </CardContent>
-              </Card>
+              </div>
 
-              <Card className="card-premium">
-                <CardContent className="p-8 flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 border border-emerald-primary/20 text-emerald-primary flex items-center justify-center shrink-0">
-                    <Phone size={28} />
-                  </div>
+              <div className="border border-border bg-bg-primary p-8 flex items-start gap-6">
+                <div className="w-12 h-12 border-b-2 border-emerald-primary text-emerald-primary flex items-center justify-center shrink-0">
+                  <Phone size={28} />
+                </div>
                   <div>
                     <h3 className="font-display font-bold text-xl text-text-primary mb-2">WhatsApp Pengurus</h3>
                     <a href="https://wa.me/6282143506574" target="_blank" rel="noopener noreferrer" className="text-emerald-primary hover:text-emerald-deep font-medium transition-colors text-lg inline-block mb-4">
@@ -71,14 +68,12 @@ export default function Contact() {
                       </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+              </div>
 
-              <Card className="card-premium">
-                <CardContent className="p-8 flex items-start gap-6">
-                  <div className="w-14 h-14 rounded-2xl bg-emerald-primary/10 border border-emerald-primary/20 text-emerald-primary flex items-center justify-center shrink-0">
-                    <Instagram size={28} />
-                  </div>
+              <div className="border border-border bg-bg-primary p-8 flex items-start gap-6">
+                <div className="w-12 h-12 border-b-2 border-emerald-primary text-emerald-primary flex items-center justify-center shrink-0">
+                  <Instagram size={28} />
+                </div>
                   <div>
                     <h3 className="font-display font-bold text-xl text-text-primary mb-2">Instagram</h3>
                     <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noreferrer" className="text-emerald-primary hover:text-emerald-deep font-medium transition-colors text-lg inline-block mb-4">
@@ -92,17 +87,16 @@ export default function Contact() {
                       </Button>
                     </div>
                   </div>
-                </CardContent>
-              </Card>
+              </div>
             </div>
             
             {/* Map */}
-            <div className="rounded-3xl overflow-hidden border border-border h-[500px] lg:h-full min-h-[500px] relative bg-white p-2 shadow-sm">
+            <div className="border border-border h-[500px] lg:h-full min-h-[500px] relative bg-bg-secondary p-0">
               <iframe 
                 src="https://maps.google.com/maps?q=Jl.%20Jati%20Sari%20Besar%20Gg.%20Langgar,%20Pepelegi,%20Kec.%20Waru,%20Kabupaten%20Sidoarjo&t=&z=16&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 
                 height="100%" 
-                style={{ border: 0, borderRadius: '1.2rem' }} 
+                style={{ border: 0 }} 
                 allowFullScreen={false} 
                 loading="lazy" 
                 referrerPolicy="no-referrer-when-downgrade"
