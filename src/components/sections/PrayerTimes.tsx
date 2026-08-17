@@ -83,7 +83,7 @@ export default function PrayerTimes() {
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <div className="bg-bg-primary border border-border rounded-xl px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
+            <div className="bg-transparent border border-border rounded-none px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
               <Clock className="text-text-secondary" />
               <div className="text-sm">
                 <p className="text-text-secondary">Waktu Saat Ini</p>
@@ -94,8 +94,8 @@ export default function PrayerTimes() {
             </div>
             
             {nextPrayer && (
-              <div className="bg-emerald-primary/10 border border-emerald-primary/30 rounded-xl px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
-                <BellRing className="text-emerald-primary animate-pulse" />
+              <div className="bg-bg-primary border-l-4 border-emerald-primary px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
+                <BellRing className="text-emerald-primary" />
                 <div className="text-sm">
                   <p className="text-emerald-primary font-medium">Menuju {nextPrayer.name}</p>
                   <p className="font-bold text-text-primary tabular-nums tracking-wider text-lg">
@@ -119,22 +119,19 @@ export default function PrayerTimes() {
                 <div
                   key={prayer.name}
                   className={cn(
-                    "flex flex-col items-center justify-center p-6 rounded-2xl border transition-all duration-300 relative overflow-hidden group",
+                    "flex flex-col items-center justify-center py-6 border-b-2 transition-all duration-300 relative",
                     isActive 
-                      ? "bg-emerald-primary border-emerald-deep shadow-md scale-[1.02]" 
-                      : "bg-bg-primary border-border hover:border-emerald-primary/50"
+                      ? "border-emerald-primary text-emerald-primary" 
+                      : "border-transparent text-text-primary hover:border-border"
                   )}
                 >
                   <span className={cn(
-                    "font-medium mb-2",
-                    isActive ? "text-bg-primary/90" : "text-text-secondary"
+                    "font-medium mb-2 uppercase tracking-widest text-sm",
+                    isActive ? "text-emerald-primary" : "text-text-secondary"
                   )}>
                     {prayer.name}
                   </span>
-                  <span className={cn(
-                    "text-3xl md:text-4xl font-bold font-display tabular-nums",
-                    isActive ? "text-bg-primary" : "text-text-primary"
-                  )}>
+                  <span className="text-3xl md:text-4xl font-bold font-display tabular-nums">
                     {prayer.time}
                   </span>
                 </div>
