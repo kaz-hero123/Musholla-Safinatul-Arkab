@@ -53,14 +53,19 @@ export default function InfaqHighlight() {
              </div>
              
              <div className="space-y-0">
-               {INFAQ_DATA.history.slice(0, 4).map((entry, i) => (
+               {INFAQ_DATA.history.slice(-4).reverse().map((entry, i) => (
                  <div key={i} className="flex items-center justify-between py-4 border-b border-border/50 last:border-0">
                    <div>
-                     <p className="text-sm font-bold text-text-primary">{entry.description}</p>
-                     <p className="text-xs text-text-muted mt-1">{entry.date}</p>
+                     <p className="text-sm font-bold text-text-primary">{entry.description || "Infaq & Pengeluaran"}</p>
+                     <p className="text-xs text-text-muted mt-1">{entry.month}</p>
                    </div>
-                   <div className={`text-sm font-medium ${entry.type === 'in' ? 'text-text-primary' : 'text-text-secondary'}`}>
-                     {entry.type === 'in' ? '+' : '-'} Rp {Intl.NumberFormat("id-ID").format(entry.amount)}
+                   <div className="flex flex-col items-end gap-1">
+                     <span className="text-sm font-medium text-text-primary">
+                       + Rp {Intl.NumberFormat("id-ID").format(entry.income)}
+                     </span>
+                     <span className="text-sm font-medium text-text-secondary">
+                       - Rp {Intl.NumberFormat("id-ID").format(entry.expense)}
+                     </span>
                    </div>
                  </div>
                ))}
