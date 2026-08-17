@@ -17,21 +17,22 @@ export function GalleryGrid() {
           </div>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 auto-rows-[250px]">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-x-8 gap-y-16">
           {GALLERY_DATA.map((item) => (
             <div 
               key={item.id} 
-              className={`group relative rounded-3xl overflow-hidden bg-bg-secondary ${item.className || ''}`}
+              className={`group flex flex-col ${item.className || ''}`}
             >
-              <img 
-                src={item.url} 
-                alt={item.title} 
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-80 group-hover:opacity-100 transition-opacity" />
-              <div className="absolute bottom-0 left-0 right-0 p-8 transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                <h3 className="text-white font-display font-bold text-xl mb-2">{item.title}</h3>
-                <p className="text-white/80 text-sm opacity-0 group-hover:opacity-100 transition-opacity delay-100 line-clamp-2">
+              <div className="aspect-[4/3] w-full overflow-hidden bg-bg-secondary mb-4 relative">
+                <img 
+                  src={item.url} 
+                  alt={item.title} 
+                  className="w-full h-full object-cover grayscale-[30%] group-hover:grayscale-0 transition-all duration-700 ease-out"
+                />
+              </div>
+              <div className="border-t border-border pt-4 mt-auto">
+                <h3 className="font-display font-bold text-xl mb-2 text-text-primary">{item.title}</h3>
+                <p className="text-text-secondary text-sm leading-relaxed">
                   {item.description}
                 </p>
               </div>
