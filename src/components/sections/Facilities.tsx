@@ -18,7 +18,7 @@ export function Facilities() {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
           {ABOUT_DATA.facilities.map((fac, i) => (
             <div key={i} className="group cursor-pointer">
-              <div className="aspect-[4/3] rounded-3xl overflow-hidden mb-6 bg-bg-secondary relative">
+              <div className="aspect-[4/3] overflow-hidden mb-6 bg-bg-secondary relative">
                 <img 
                   src={fac.image} 
                   alt={fac.title} 
