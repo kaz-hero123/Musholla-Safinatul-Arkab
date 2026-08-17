@@ -1,37 +1,37 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #FAFAFA; /* Off-white, softer than pure white */
-  --color-bg-secondary: #F4F4F5; /* Zinc-100 */
+  --color-bg-primary: #FDFBF7; /* Warm, paper-like off-white */
+  --color-bg-secondary: #F4F2EC; /* Slightly darker warm tone for contrast */
   
-  /* The "Heritage" Green */
-  --color-emerald-primary: #047857; /* Deep forest green */
-  --color-emerald-light: #10B981; 
-  --color-emerald-deep: #064E3B; /* Even deeper for hover */
+  /* Earthy, grounded green */
+  --color-emerald-primary: #2C4234; /* Deep, calm forest green */
+  --color-emerald-light: #3E5C49; 
+  --color-emerald-deep: #1A2820; 
   
   /* Typography Colors */
-  --color-text-primary: #18181B; /* Zinc-900 */
-  --color-text-secondary: #52525B; /* Zinc-500 */
-  --color-text-muted: #A1A1AA; /* Zinc-400 */
+  --color-text-primary: #1A1A1A; /* Very dark gray, softer than pure black */
+  --color-text-secondary: #4A4A4A; /* Medium dark gray */
+  --color-text-muted: #8C8C8C; /* Light text for metadata */
   
   /* UI Elements */
-  --color-border: #E4E4E7; /* Zinc-200 */
+  --color-border: #E8E5DF; /* Warm border color matching the bg */
 
   /* Fonts */
   --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-display), sans-serif;
+  --font-display: var(--font-display), serif; /* Now Playfair Display */
   --font-arabic: var(--font-amiri), serif;
 }
 
 @layer base {
   :root {
-    --bg-primary: #FAFAFA;
-    --bg-secondary: #F4F4F5;
-    --emerald-primary: #047857;
-    --emerald-light: #10B981;
-    --text-primary: #18181B;
-    --text-secondary: #52525B;
-    --border: #E4E4E7;
+    --bg-primary: #FDFBF7;
+    --bg-secondary: #F4F2EC;
+    --emerald-primary: #2C4234;
+    --emerald-light: #3E5C49;
+    --text-primary: #1A1A1A;
+    --text-secondary: #4A4A4A;
+    --border: #E8E5DF;
   }
 }
 
@@ -42,23 +42,4 @@ body {
   font-family: var(--font-sans);
 }
 
-/* Base structural classes */
-.glass-panel {
-  background: rgba(255, 255, 255, 0.7);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgba(255, 255, 255, 0.5);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
-}
-
-.card-premium {
-  background-color: #FFFFFF;
-  border: 1px solid var(--border);
-  border-radius: 1.5rem;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.02);
-  transition: all 0.3s ease;
-}
-
-.card-premium:hover {
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.06);
-  border-color: rgba(4, 120, 87, 0.2);
-}
+/* Base structural overrides - removed all AI slop classes (glass-panel, card-premium) */
