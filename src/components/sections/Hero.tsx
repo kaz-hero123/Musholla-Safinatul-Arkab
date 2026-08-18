@@ -13,7 +13,7 @@ export default function Hero() {
         <FadeIn className="flex flex-col items-start text-left lg:col-span-5">
           {/* Bismillah - Editorial style */}
           <div className="mb-6">
-            <span className="font-arabic text-3xl text-text-primary/80 leading-none">
+            <span className="font-arabic text-4xl md:text-5xl text-text-primary/80 leading-none">
               بِسْمِ اللَّهِ الرَّحْمَنِ الرَّحِيمِ
             </span>
           </div>
