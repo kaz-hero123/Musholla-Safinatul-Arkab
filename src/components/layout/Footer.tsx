@@ -29,9 +29,7 @@ export default function Footer() {
           {/* Brand */}
           <div className="md:col-span-1">
             <Link href="/" className="flex items-center gap-3 mb-6">
-              <div className="w-10 h-10 rounded-full bg-emerald-primary flex items-center justify-center text-bg-primary font-bold text-xl">
-                S
-              </div>
+              <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight">S.</span>
               <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
             </Link>
             <p className="text-text-secondary text-sm leading-relaxed mb-6">
@@ -43,10 +41,11 @@ export default function Footer() {
           <div>
             <h3 className="font-display font-bold text-text-primary mb-6">Navigasi</h3>
             <ul className="space-y-4">
-              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Tentang Kami</Link></li>
-              <li><Link href="/program" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Program Rutin</Link></li>
-              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Laporan Infaq</Link></li>
-              <li><Link href="/jadwal-shalat" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Jadwal Shalat</Link></li>
+              <li><Link href="/" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Beranda</Link></li>
+              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kisah Kami</Link></li>
+              <li><Link href="/kegiatan" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Pendidikan & Sosial</Link></li>
+              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Laporan Amanah</Link></li>
+              <li><Link href="/kontak" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kunjungi Kami</Link></li>
             </ul>
           </div>
 
@@ -57,12 +56,12 @@ export default function Footer() {
               <li className="flex items-start gap-3">
                 <MapPin size={20} className="text-emerald-primary shrink-0 mt-0.5" />
                 <span className="text-text-secondary text-sm leading-relaxed">
-                  Jl. Contoh Jalan No.123, Kelurahan Contoh, Kecamatan Contoh, Kota Contoh 12345
+                  Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kabupaten Sidoarjo, Jawa Timur 61256
                 </span>
               </li>
               <li className="flex items-center gap-3">
                 <Phone size={20} className="text-emerald-primary shrink-0" />
-                <span className="text-text-secondary text-sm">+62 812-3456-7890</span>
+                <span className="text-text-secondary text-sm">+62 821-4350-6574</span>
               </li>
               <li className="flex items-center gap-3">
                 <Mail size={20} className="text-emerald-primary shrink-0" />

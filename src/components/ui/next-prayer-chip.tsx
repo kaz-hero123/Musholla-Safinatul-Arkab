@@ -14,7 +14,7 @@ export default function NextPrayerChip() {
   }, []);
 
   useEffect(() => {
-    getPrayerTimes().then(data => setTimes(data));
+    getPrayerTimes("Sidoarjo").then(data => setTimes(data));
   }, []);
 
   let nextPrayer = null;
@@ -60,10 +60,10 @@ export default function NextPrayerChip() {
 
   return (
     <Link href="/jadwal-shalat" className="block max-w-xl mx-auto -mt-8 relative z-20 group">
-      <div className="bg-bg-primary border border-border rounded-full px-6 py-4 flex items-center justify-between shadow-sm hover:border-emerald-primary hover:shadow-md transition-all">
+      <div className="bg-bg-primary border border-border rounded-none px-6 py-4 flex items-center justify-between transition-all hover:bg-bg-secondary">
         <div className="flex items-center gap-3">
           <MapPin size={18} className="text-text-secondary" />
-          <span className="text-sm font-medium text-text-primary hidden sm:inline">DKI Jakarta</span>
+          <span className="text-sm font-medium text-text-primary hidden sm:inline">Sidoarjo</span>
         </div>
         
         {nextPrayer ? (

@@ -1,58 +1,45 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #FFFEF2;
-  --color-bg-secondary: #F5F2E8;
-  --color-bg-tertiary: #EBE8DE;
+  --color-bg-primary: #FDFBF7; /* Warm, paper-like off-white */
+  --color-bg-secondary: #F4F2EC; /* Slightly darker warm tone for contrast */
   
-  --color-emerald-primary: #059669; /* Forest Green Accent */
-  --color-emerald-light: #10B981;
-  --color-emerald-deep: #047857;
+  /* Earthy, grounded green */
+  --color-emerald-primary: #2C4234; /* Deep, calm forest green */
+  --color-emerald-light: #3E5C49; 
+  --color-emerald-deep: #1A2820; 
   
-  --color-text-primary: #333333; /* Charcoal */
-  --color-text-secondary: #4B5563;
-  --color-text-muted: #6B7280;
+  /* Typography Colors */
+  --color-text-primary: #1A1A1A; /* Very dark gray, softer than pure black */
+  --color-text-secondary: #4A4A4A; /* Medium dark gray */
+  --color-text-muted: #8C8C8C; /* Light text for metadata */
   
-  --color-border: rgba(51, 51, 51, 0.1);
+  /* UI Elements */
+  --color-border: #E8E5DF; /* Warm border color matching the bg */
 
+  /* Fonts */
   --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-display), sans-serif;
+  --font-display: var(--font-display), serif; /* Now Playfair Display */
   --font-arabic: var(--font-amiri), serif;
 }
 
 @layer base {
   :root {
-    --bg-primary: #FFFEF2;
-    --bg-secondary: #F5F2E8;
-    --bg-tertiary: #EBE8DE;
-    --accent-primary: #059669;
-    --accent-glow: #10B981;
-    --accent-deep: #047857;
-    --text-primary: #333333;
-    --text-secondary: #4B5563;
-    --text-muted: #6B7280;
-    --border: rgba(51, 51, 51, 0.1);
+    --bg-primary: #FDFBF7;
+    --bg-secondary: #F4F2EC;
+    --emerald-primary: #2C4234;
+    --emerald-light: #3E5C49;
+    --text-primary: #1A1A1A;
+    --text-secondary: #4A4A4A;
+    --border: #E8E5DF;
   }
-}
-
-@keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(calc(-100% - var(--gap))); }
-}
-
-.animate-marquee {
-  animation: marquee var(--duration) linear infinite;
 }
 
 body {
   background-color: var(--bg-primary);
   color: var(--text-primary);
   scroll-behavior: smooth;
+  font-family: var(--font-sans);
 }
 
-/* Base structural classes to replace glassmorphism */
-.card-base {
-  background-color: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: 1rem;
-}
+/* Base structural overrides - removed all AI slop classes (glass-panel, card-premium) */

@@ -4,33 +4,33 @@ export const SITE_DATA: SiteData = {
   programs: [
     {
       id: "kajian",
-      title: "Kajian Rutin",
-      description: "Pengajian kitab kuning dan tematik untuk memperdalam ilmu agama Islam.",
-      schedule: "Setiap Malam Jumat, Ba'da Isya",
+      title: "Kajian Tafsir & Fiqih",
+      description: "Pembahasan mendalam Kitab Tafsir Al-Jalalain dan Safinatun Najah bersama Ustadz H. Abdul Wahid. Terbuka untuk umum.",
+      schedule: "Setiap Malam Jumat, Ba'da Maghrib",
       icon: "BookOpen", 
       color: "from-emerald-500/20 to-teal-500/20"
     },
     {
       id: "tpa",
-      title: "TPA & Tahfiz",
-      description: "Pendidikan Al-Quran bagi anak-anak dan remaja untuk mencetak generasi Qurani.",
-      schedule: "Senin - Jumat, 16:00 WIB",
+      title: "TPA & Tahfiz Anak",
+      description: "Membina lebih dari 80 santri usia dini dengan metode Iqra' dan program hafalan Juz 30. Dibimbing oleh 4 pengajar tersertifikasi.",
+      schedule: "Senin - Jumat, 15:30 WIB",
       icon: "Users",
       color: "from-blue-500/20 to-cyan-500/20"
     },
     {
       id: "phbi",
-      title: "Peringatan Hari Besar Islam",
-      description: "Acara perayaan hari raya dan momen penting Islam seperti Maulid dan Isra Mi'raj.",
-      schedule: "Insidental",
+      title: "Peringatan Hari Besar",
+      description: "Penyelenggaraan Tabligh Akbar, Lomba Santri, dan santunan yatim piatu pada momen Muharram, Maulid, dan Ramadhan.",
+      schedule: "Menyesuaikan Kalender Hijriah",
       icon: "Calendar",
       color: "from-purple-500/20 to-pink-500/20"
     },
     {
       id: "sosial",
-      title: "Kegiatan Sosial",
-      description: "Gotong royong, santunan anak yatim, dan pembagian sembako untuk masyarakat.",
-      schedule: "Setiap Jumat Berkah",
+      title: "Jumat Berkah & Sosial",
+      description: "Pembagian 100+ porsi makanan gratis setiap bakda Jumat, serta distribusi sembako bulanan untuk warga pra-sejahtera di Sidoarjo.",
+      schedule: "Setiap Jumat & Akhir Bulan",
       icon: "Heart",
       color: "from-orange-500/20 to-red-500/20"
     }
@@ -52,28 +52,28 @@ export const SITE_DATA: SiteData = {
   gallery: [
     {
       id: 1,
-      url: 'data:image/svg+xml;utf8,<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23F5F2E8"/><path d="M0,0 L800,800 M800,0 L0,800" stroke="%2310B981" stroke-width="40" opacity="0.3"/><circle cx="400" cy="400" r="200" fill="none" stroke="%2310B981" stroke-width="20"/><rect x="250" y="250" width="300" height="300" fill="none" stroke="%2310B981" stroke-width="10" opacity="0.7" transform="rotate(45 400 400)"/></svg>',
+      url: "https://images.unsplash.com/photo-1584551246679-0daf3d275d0f?q=80&w=800&auto=format&fit=crop",
       title: "Kajian Rutin Mingguan",
       description: "Jamaah antusias mengikuti kajian tematik setiap malam Jumat.",
       className: "md:col-span-2"
     },
     {
       id: 2,
-      url: 'data:image/svg+xml;utf8,<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23F5F2E8"/><g stroke="%2310B981" stroke-width="15" fill="none"><circle cx="200" cy="200" r="100"/><circle cx="600" cy="200" r="100"/><circle cx="200" cy="600" r="100"/><circle cx="600" cy="600" r="100"/><circle cx="400" cy="400" r="150" opacity="0.5"/></g></svg>',
+      url: "https://images.unsplash.com/photo-1606105961732-6332674f4ee6?q=80&w=800&auto=format&fit=crop",
       title: "Pendidikan TPA",
       description: "Anak-anak belajar membaca Al-Quran dengan metode Iqra.",
       className: "md:col-span-1"
     },
     {
       id: 3,
-      url: 'data:image/svg+xml;utf8,<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23F5F2E8"/><path d="M 0 400 Q 200 200 400 400 T 800 400 M 0 200 Q 200 0 400 200 T 800 200 M 0 600 Q 200 400 400 600 T 800 600" fill="none" stroke="%2310B981" stroke-width="15" opacity="0.6"/></svg>',
+      url: "https://images.unsplash.com/photo-1593113589914-07528e356c32?q=80&w=800&auto=format&fit=crop",
       title: "Kegiatan Sosial Berbagi",
       description: "Distribusi sembako kepada warga sekitar yang membutuhkan.",
       className: "md:col-span-1"
     },
     {
       id: 4,
-      url: 'data:image/svg+xml;utf8,<svg width="800" height="800" xmlns="http://www.w3.org/2000/svg"><rect width="100%" height="100%" fill="%23F5F2E8"/><path d="M 400 0 L 800 400 L 400 800 L 0 400 Z" fill="none" stroke="%2310B981" stroke-width="25"/><path d="M 400 100 L 700 400 L 400 700 L 100 400 Z" fill="none" stroke="%2310B981" stroke-width="10" opacity="0.5"/><circle cx="400" cy="400" r="100" fill="none" stroke="%2310B981" stroke-width="10"/></svg>',
+      url: "https://images.unsplash.com/photo-1542816417-0983c9c9ad53?q=80&w=800&auto=format&fit=crop",
       title: "Gotong Royong Bersih Musholla",
       description: "Remaja musholla bergotong royong membersihkan area wudhu.",
       className: "md:col-span-2"
