@@ -20,6 +20,7 @@ export default function InfaqDashboard() {
   return (
     <section className="py-16 md:py-24 px-6 bg-bg-primary">
       <div className="max-w-7xl mx-auto">
+        <h2 className="sr-only">Ringkasan Keuangan</h2>
         
         {/* Top KPI Metrics - Flat Editorial Style */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mb-16 border-y border-border divide-y md:divide-y-0 md:divide-x divide-border">
@@ -81,7 +82,7 @@ export default function InfaqDashboard() {
 
         {/* Data Table */}
         <div className="mb-24">
-          <h3 className="text-3xl font-bold font-display text-text-primary mb-8 border-b border-border pb-4">Jurnal Keuangan</h3>
+          <h2 className="text-3xl font-bold font-display text-text-primary mb-8 border-b border-border pb-4">Jurnal Keuangan</h2>
           {/* Note: the LedgerTable component should ideally be flattened as well. We assume it inherits table styles. */}
           <LedgerTable history={history} />
         </div>
@@ -89,7 +90,7 @@ export default function InfaqDashboard() {
         {/* Narrative Impact */}
         <div className="grid md:grid-cols-2 gap-16 border-t border-border pt-16">
           <div>
-            <h3 className="font-display font-bold text-3xl text-text-primary mb-6">Fokus Penyaluran Dana</h3>
+            <h2 className="font-display font-bold text-3xl text-text-primary mb-6">Fokus Penyaluran Dana</h2>
             <p className="text-text-secondary text-lg leading-relaxed mb-8">
               Dana yang diinfakkan jamaah difokuskan pada kegiatan operasional harian, pemeliharaan fasilitas ibadah, serta kegiatan sosial kemasyarakatan.
             </p>
@@ -106,7 +107,7 @@ export default function InfaqDashboard() {
           </div>
 
           <div className="bg-bg-secondary p-8 md:p-12 flex flex-col justify-center border-l-4 border-emerald-primary">
-            <h3 className="text-2xl font-display font-bold text-text-primary mb-4">Salurkan Infaq Anda</h3>
+            <h2 className="text-2xl font-display font-bold text-text-primary mb-4">Salurkan Infaq Anda</h2>
             <p className="text-text-secondary leading-relaxed mb-8">
               Salurkan donasi Anda melalui rekening BSI resmi Musholla Safinatul Arkab. Mohon konfirmasi setelah transfer agar tercatat dengan baik.
             </p>
