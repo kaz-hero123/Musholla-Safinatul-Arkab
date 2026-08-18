@@ -1,12 +1,14 @@
 "use client";
 import React, { useEffect, useState } from "react";
 import { getPrayerTimes, PrayerTimes as PrayerTimesType } from "@/lib/prayer-api";
-import { Clock, MapPin, BellRing } from "lucide-react";
+import { Clock, MapPin, BellRing, AlertCircle, RefreshCw } from "lucide-react";
+import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 
 export default function PrayerTimes() {
   const [times, setTimes] = useState<PrayerTimesType | null>(null);
   const [loading, setLoading] = useState(true);
+  const [error, setError] = useState<string | null>(null);
   const [currentTime, setCurrentTime] = useState<Date | null>(null);
 
   useEffect(() => {
@@ -14,11 +16,33 @@ export default function PrayerTimes() {
     return () => clearInterval(timer);
   }, []);
 
-  useEffect(() => {
+  const fetchTimes = () => {
+    setLoading(true);
+    setError(null);
     getPrayerTimes("Sidoarjo").then(data => {
-      setTimes(data);
+      if (data) {
+        setTimes(data);
+        try {
+          localStorage.setItem("prayerTimesCache", JSON.stringify(data));
+        } catch (e) {}
+      } else {
+        try {
+          const cached = localStorage.getItem("prayerTimesCache");
+          if (cached) {
+            setTimes(JSON.parse(cached));
+          } else {
+            setError("Gagal memuat jadwal shalat.");
+          }
+        } catch (e) {
+          setError("Gagal memuat jadwal shalat.");
+        }
+      }
       setLoading(false);
     });
+  };
+
+  useEffect(() => {
+    fetchTimes();
   }, []);
 
   let nextPrayer = null;
@@ -110,6 +134,16 @@ export default function PrayerTimes() {
         {loading ? (
           <div className="h-32 flex items-center justify-center text-text-secondary">
             Memuat jadwal...
+          </div>
+        ) : error ? (
+          <div className="h-32 flex flex-col items-center justify-center text-text-secondary gap-4">
+            <div className="flex items-center gap-2 text-red-500">
+              <AlertCircle size={20} />
+              <span>{error}</span>
+            </div>
+            <Button variant="outline" size="sm" onClick={fetchTimes} className="gap-2">
+              <RefreshCw size={16} /> Coba Lagi
+            </Button>
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
