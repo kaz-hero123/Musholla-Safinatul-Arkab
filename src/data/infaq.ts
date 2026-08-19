@@ -13,7 +13,7 @@ export interface InfaqData {
   goal: number;
   goalTitle: string;
   history: InfaqHistory[];
-  recentDistributionNotes: string[];
+  recentDistributionNotes: { title: string; impact: string }[];
 }
 
 export const INFAQ_DATA: InfaqData = {
@@ -30,8 +30,17 @@ export const INFAQ_DATA: InfaqData = {
     { month: "Agustus 2026", income: 5200000, expense: 1750000, description: "Servis AC dan Jumat Berkah" }
   ],
   recentDistributionNotes: [
-    "Servis Fasilitas AC",
-    "Santunan Lansia",
-    "Jumat Berkah"
+    {
+      title: "Servis Fasilitas AC",
+      impact: "Memastikan 150+ jamaah shalat dengan sejuk & khusyuk."
+    },
+    {
+      title: "Santunan Lansia",
+      impact: "Membantu biaya pengobatan dan sembako untuk 5 warga lansia dhuafa."
+    },
+    {
+      title: "Jumat Berkah",
+      impact: "120 porsi makan siang gratis dibagikan untuk jamaah & musafir."
+    }
   ]
 };

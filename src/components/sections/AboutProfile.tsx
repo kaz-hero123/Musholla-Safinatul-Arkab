@@ -45,7 +45,7 @@ export function AboutProfile() {
           <div className="mb-16">
             <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary mb-4">Pengurus & Pembina</h2>
             <p className="text-text-secondary text-lg max-w-2xl">
-              Sinergi DKM dan Remaja Musholla untuk memastikan setiap program berjalan dengan progresif.
+              Kolaborasi Takmir dan Remaja Musholla dalam menghadirkan pelayanan jamaah yang maksimal dan program yang bermanfaat bagi warga sekitar.
             </p>
           </div>
 

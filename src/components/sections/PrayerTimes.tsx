@@ -170,9 +170,26 @@ export default function PrayerTimes() {
                   </span>
                 </div>
               );
-            })}
           </div>
         )}
+
+        {/* Friday Schedule Notice */}
+        <div className="mt-12 bg-bg-primary p-6 border border-border border-l-4 border-l-emerald-primary flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+          <div>
+            <h3 className="font-display font-bold text-lg text-text-primary mb-1">Jumat Ini (21 Agustus 2026)</h3>
+            <p className="text-text-secondary text-sm">Mari rapatkan shaf lebih awal. Waktu Jumu'ah menyesuaikan jadwal Dzuhur.</p>
+          </div>
+          <div className="flex flex-col sm:flex-row gap-8">
+            <div>
+              <p className="text-xs text-text-muted font-medium uppercase tracking-widest mb-1">Khatib</p>
+              <p className="font-medium text-text-primary">Ust. H. Abdullah Faqih</p>
+            </div>
+            <div>
+              <p className="text-xs text-text-muted font-medium uppercase tracking-widest mb-1">Imam</p>
+              <p className="font-medium text-text-primary">Ust. Abdurrahman</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
   );

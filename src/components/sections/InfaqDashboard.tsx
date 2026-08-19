@@ -90,17 +90,18 @@ export default function InfaqDashboard() {
         {/* Narrative Impact */}
         <div className="grid md:grid-cols-2 gap-16 border-t border-border pt-16">
           <div>
-            <h2 className="font-display font-bold text-3xl text-text-primary mb-6">Fokus Penyaluran Dana</h2>
+            <h2 className="font-display font-bold text-3xl text-text-primary mb-6">Kebaikan yang Telah Tersalurkan</h2>
             <p className="text-text-secondary text-lg leading-relaxed mb-8">
-              Dana yang diinfakkan jamaah difokuskan pada kegiatan operasional harian, pemeliharaan fasilitas ibadah, serta kegiatan sosial kemasyarakatan.
+              Dana yang diinfakkan jamaah didedikasikan untuk kenyamanan beribadah dan kesejahteraan warga sekitar. Berikut adalah dampak nyata dari infaq Anda bulan ini:
             </p>
-            <div className="flex flex-col gap-3">
+            <div className="flex flex-col gap-5">
               {recentDistributionNotes.map((note, i) => (
-                <div key={i} className="flex items-start gap-3">
+                <div key={i} className="flex items-start gap-4">
                   <div className="w-1.5 h-1.5 rounded-none bg-emerald-primary mt-2.5 shrink-0" />
-                  <span className="text-text-primary font-medium">
-                    {note}
-                  </span>
+                  <div>
+                    <h4 className="text-text-primary font-bold text-lg">{note.title}</h4>
+                    <p className="text-text-secondary mt-1">{note.impact}</p>
+                  </div>
                 </div>
               ))}
             </div>
