@@ -170,6 +170,7 @@ export default function PrayerTimes() {
                   </span>
                 </div>
               );
+            })}
           </div>
         )}
 
