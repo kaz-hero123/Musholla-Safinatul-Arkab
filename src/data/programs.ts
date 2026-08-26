@@ -8,7 +8,6 @@ export interface Program {
   icon: keyof typeof icons;
 }
 
-// Map string keys to Lucide icons for easier rendering without storing React nodes in data
 export const icons = {
   BookOpen,
   Users,

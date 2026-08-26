@@ -1,17 +1,15 @@
 "use client";
 import React from "react";
 import { INFAQ_DATA } from "@/data/infaq";
-import { Wallet, ArrowDownRight, ArrowUpRight, TrendingUp } from "lucide-react";
-import { LedgerTable } from "@/components/ui/ledger-table";
+import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 
 export default function InfaqDashboard() {
   const { 
     currentBalance, 
     incomeThisMonth, 
     expenseThisMonth, 
-    goal, 
+    goal,
     goalTitle, 
-    history, 
     recentDistributionNotes 
   } = INFAQ_DATA;
   
@@ -22,104 +20,112 @@ export default function InfaqDashboard() {
       <div className="max-w-7xl mx-auto">
         <h2 className="sr-only">Ringkasan Keuangan</h2>
         
-        {/* Top KPI Metrics - Flat Editorial Style */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-0 mb-16 border-y border-border divide-y md:divide-y-0 md:divide-x divide-border">
+        {/* Top KPI Metrics - Bento Style */}
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 mb-16">
           
           {/* Main Balance */}
-          <div className="p-8 md:p-12 bg-bg-secondary flex flex-col justify-center">
-            <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-4">Saldo Kas Aktif</h3>
-            <div className="flex items-baseline gap-2 text-4xl md:text-5xl font-bold font-display text-text-primary tracking-tight">
-              <span className="text-2xl text-text-muted font-sans font-normal">Rp</span>
+          <div className="md:col-span-6 p-8 md:p-12 bg-emerald-primary text-white rounded-[2rem] flex flex-col justify-center relative overflow-hidden group animate-reveal">
+            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
+            <h3 className="text-sm font-medium tracking-widest uppercase text-white/80 mb-4">Saldo Kas Aktif</h3>
+            <div className="flex items-baseline gap-2 text-4xl md:text-5xl lg:text-6xl font-bold font-display tracking-tight relative z-10">
+              <span className="text-2xl text-white/60 font-sans font-normal">Rp</span>
               {Intl.NumberFormat("id-ID").format(currentBalance)}
             </div>
           </div>
 
-          {/* Income */}
-          <div className="p-8 md:p-12 flex flex-col justify-center">
-            <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-4 flex items-center gap-2">
-              <ArrowDownRight className="text-emerald-primary" size={16} />
-              Pemasukan Bulan Ini
-            </h3>
-            <div className="text-3xl font-bold font-display text-text-primary tracking-tight">
-              {Intl.NumberFormat("id-ID").format(incomeThisMonth)}
+          <div className="md:col-span-6 grid grid-rows-2 gap-4 md:gap-6">
+            {/* Income */}
+            <div className="p-6 md:p-8 bg-bg-secondary rounded-[2rem] flex flex-col justify-center border border-border/50 animate-reveal" style={{animationDelay: '0.1s'}}>
+              <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-2 flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-emerald-primary/10 flex items-center justify-center">
+                  <ArrowDownRight className="text-emerald-primary" size={16} />
+                </div>
+                Pemasukan Bulan Ini
+              </h3>
+              <div className="text-3xl font-bold font-display text-text-primary tracking-tight">
+                <span className="text-lg text-text-muted font-sans font-normal mr-1">Rp</span>
+                {Intl.NumberFormat("id-ID").format(incomeThisMonth)}
+              </div>
             </div>
-          </div>
 
-          {/* Expense */}
-          <div className="p-8 md:p-12 flex flex-col justify-center">
-            <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-4 flex items-center gap-2">
-              <ArrowUpRight className="text-text-muted" size={16} />
-              Pengeluaran Bulan Ini
-            </h3>
-            <div className="text-3xl font-bold font-display text-text-primary tracking-tight">
-              {Intl.NumberFormat("id-ID").format(expenseThisMonth)}
-            </div>
-          </div>
-          
-        </div>
-
-        {/* Goal Progress - Editorial Bar */}
-        <div className="mb-16 max-w-4xl">
-          <div className="flex flex-col md:flex-row justify-between items-start md:items-end mb-4 gap-4 border-b border-border pb-4">
-            <div>
-              <h3 className="text-2xl font-bold font-display text-text-primary">{goalTitle}</h3>
-            </div>
-            <div className="text-left md:text-right">
-              <p className="text-xl font-bold text-text-primary">
-                Rp {Intl.NumberFormat("id-ID").format(currentBalance)} <span className="text-sm font-normal text-text-muted">/ {Intl.NumberFormat("id-ID").format(goal)}</span>
-              </p>
+            {/* Expense */}
+            <div className="p-6 md:p-8 bg-bg-secondary rounded-[2rem] flex flex-col justify-center border border-border/50 animate-reveal" style={{animationDelay: '0.2s'}}>
+              <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-2 flex items-center gap-2">
+                <div className="w-8 h-8 rounded-full bg-text-primary/5 flex items-center justify-center">
+                  <ArrowUpRight className="text-text-secondary" size={16} />
+                </div>
+                Pengeluaran Bulan Ini
+              </h3>
+              <div className="text-3xl font-bold font-display text-text-primary tracking-tight">
+                <span className="text-lg text-text-muted font-sans font-normal mr-1">Rp</span>
+                {Intl.NumberFormat("id-ID").format(expenseThisMonth)}
+              </div>
             </div>
           </div>
           
-          <div className="h-2 w-full bg-bg-secondary overflow-hidden">
-            <div 
-              style={{ width: `${progressPercent}%` }}
-              className="h-full bg-emerald-primary transition-all duration-1000 ease-out" 
-            />
+        </div>
+
+        {/* Narrative Impact & Goal - Bento */}
+        <div className="grid lg:grid-cols-12 gap-4 md:gap-6 pt-8">
+          
+          {/* Goal Progress (Left Bento) */}
+          <div className="lg:col-span-5 bg-bg-secondary p-8 md:p-10 rounded-[2rem] border border-border/50 animate-reveal" style={{animationDelay: '0.4s'}}>
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <h3 className="text-2xl font-bold font-display text-text-primary mb-2">{goalTitle}</h3>
+                <p className="text-text-secondary mb-8">Bersama kita wujudkan fasilitas yang lebih nyaman untuk jamaah.</p>
+              </div>
+              
+              <div>
+                <div className="flex justify-between items-end mb-4">
+                  <p className="text-xl font-bold text-text-primary">
+                    Rp {Intl.NumberFormat("id-ID").format(currentBalance)} 
+                  </p>
+                  <span className="text-sm font-normal text-text-muted">/ Rp {Intl.NumberFormat("id-ID").format(goal)}</span>
+                </div>
+                
+                <div className="h-4 w-full bg-bg-primary rounded-full overflow-hidden border border-border/50 p-1">
+                  <div 
+                    style={{ width: `${progressPercent}%` }}
+                    className="h-full bg-emerald-primary rounded-full transition-all duration-1000 ease-out relative overflow-hidden" 
+                  >
+                    <div className="absolute inset-0 bg-white/20 -translate-x-full animate-[shimmer_2s_infinite]"></div>
+                  </div>
+                </div>
+                <p className="text-right text-emerald-primary font-bold text-sm mt-3">{progressPercent}% Tercapai</p>
+              </div>
+            </div>
           </div>
-          <p className="text-right text-text-secondary font-medium text-sm mt-2">{progressPercent}% Tercapai</p>
-        </div>
 
-        {/* Data Table */}
-        <div className="mb-24">
-          <h2 className="text-3xl font-bold font-display text-text-primary mb-8 border-b border-border pb-4">Jurnal Keuangan</h2>
-          {/* Note: the LedgerTable component should ideally be flattened as well. We assume it inherits table styles. */}
-          <LedgerTable history={history} />
-        </div>
-
-        {/* Narrative Impact */}
-        <div className="grid md:grid-cols-2 gap-16 border-t border-border pt-16">
-          <div>
-            <h2 className="font-display font-bold text-3xl text-text-primary mb-6">Kebaikan yang Telah Tersalurkan</h2>
+          {/* Narrative (Right Bento) */}
+          <div className="lg:col-span-7 bg-bg-secondary p-8 md:p-10 rounded-[2rem] border border-border/50 animate-reveal" style={{animationDelay: '0.5s'}}>
+            <h3 className="font-display font-bold text-2xl text-text-primary mb-6">Fokus Penyaluran Dana</h3>
             <p className="text-text-secondary text-lg leading-relaxed mb-8">
               Dana yang diinfakkan jamaah didedikasikan untuk kenyamanan beribadah dan kesejahteraan warga sekitar. Berikut adalah dampak nyata dari infaq Anda bulan ini:
             </p>
-            <div className="flex flex-col gap-5">
+            <div className="flex flex-col gap-4">
               {recentDistributionNotes.map((note, i) => (
-                <div key={i} className="flex items-start gap-4">
-                  <div className="w-1.5 h-1.5 rounded-none bg-emerald-primary mt-2.5 shrink-0" />
-                  <div>
-                    <h4 className="text-text-primary font-bold text-lg">{note.title}</h4>
-                    <p className="text-text-secondary mt-1">{note.impact}</p>
+                <div key={i} className="flex items-start gap-4 p-4 bg-bg-primary rounded-2xl border border-border/30">
+                  <div className="w-8 h-8 rounded-full bg-emerald-primary/10 flex items-center justify-center shrink-0">
+                     <span className="text-emerald-primary text-xs font-bold">{i + 1}</span>
                   </div>
+                  <span className="text-text-primary font-medium mt-1.5">
+                    {note}
+                  </span>
                 </div>
               ))}
             </div>
-          </div>
-
-          <div className="bg-bg-secondary p-8 md:p-12 flex flex-col justify-center border-l-4 border-emerald-primary">
-            <h2 className="text-2xl font-display font-bold text-text-primary mb-4">Salurkan Infaq Anda</h2>
-            <p className="text-text-secondary leading-relaxed mb-8">
-              Salurkan donasi Anda melalui rekening BSI resmi Musholla Safinatul Arkab. Mohon konfirmasi setelah transfer agar tercatat dengan baik.
-            </p>
-            <a 
-              href="https://wa.me/6282143506574" 
-              target="_blank" 
-              rel="noopener noreferrer" 
-              className="inline-flex items-center justify-center bg-emerald-primary hover:bg-emerald-deep text-white font-medium px-8 py-4 transition-colors text-sm tracking-wide uppercase"
-            >
-              Konfirmasi via WhatsApp
-            </a>
+            
+            <div className="mt-8 pt-8 border-t border-border/50">
+              <a 
+                href="https://wa.me/6282143506574" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="inline-flex items-center justify-center bg-text-primary hover:bg-black text-white font-medium px-8 py-4 rounded-full transition-all hover:scale-105 text-sm tracking-wide"
+              >
+                Konfirmasi Infaq via WhatsApp
+              </a>
+            </div>
           </div>
         </div>
 

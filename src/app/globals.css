@@ -43,3 +43,38 @@ body {
 }
 
 /* Base structural overrides - removed all AI slop classes (glass-panel, card-premium) */
+
+@layer utilities {
+  .glass-liquid {
+    @apply bg-bg-primary/70 backdrop-blur-xl border border-border/50 shadow-sm;
+  }
+  
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Animations */
+  @keyframes reveal {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .animate-reveal {
+    animation: reveal 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  }
+
+  .pulse-glow {
+    animation: pulse-glow 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { opacity: 1; }
+    50% { opacity: .5; }
+  }
+}

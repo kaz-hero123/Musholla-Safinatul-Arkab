@@ -1,7 +1,6 @@
 import React from "react";
 import { MapPin, Phone, MessageCircle } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 
 const Instagram = ({ size = 24, className = "" }) => (
@@ -39,8 +38,8 @@ export default function Contact() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-start mt-16">
             {/* Contact Info Cards */}
             <div className="space-y-6">
-              <div className="border border-border bg-bg-primary p-8 flex items-start gap-6">
-                <div className="w-12 h-12 border-b-2 border-emerald-primary text-emerald-primary flex items-center justify-center shrink-0">
+              <div className="border border-border/50 bg-bg-primary p-8 rounded-[2rem] flex items-start gap-6 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-full bg-emerald-primary/10 text-emerald-primary flex items-center justify-center shrink-0">
                     <MapPin size={28} />
                   </div>
                   <div>
@@ -51,8 +50,8 @@ export default function Contact() {
                   </div>
               </div>
 
-              <div className="border border-border bg-bg-primary p-8 flex items-start gap-6">
-                <div className="w-12 h-12 border-b-2 border-emerald-primary text-emerald-primary flex items-center justify-center shrink-0">
+              <div className="border border-border/50 bg-bg-primary p-8 rounded-[2rem] flex items-start gap-6 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-full bg-emerald-primary/10 text-emerald-primary flex items-center justify-center shrink-0">
                   <Phone size={28} />
                 </div>
                   <div>
@@ -70,8 +69,8 @@ export default function Contact() {
                   </div>
               </div>
 
-              <div className="border border-border bg-bg-primary p-8 flex items-start gap-6">
-                <div className="w-12 h-12 border-b-2 border-emerald-primary text-emerald-primary flex items-center justify-center shrink-0">
+              <div className="border border-border/50 bg-bg-primary p-8 rounded-[2rem] flex items-start gap-6 hover:shadow-md transition-shadow">
+                <div className="w-12 h-12 rounded-full bg-emerald-primary/10 text-emerald-primary flex items-center justify-center shrink-0">
                   <Instagram size={28} />
                 </div>
                   <div>
@@ -91,7 +90,7 @@ export default function Contact() {
             </div>
             
             {/* Map */}
-            <div className="border border-border h-[500px] lg:h-full min-h-[500px] relative bg-bg-secondary p-0">
+            <div className="border border-border/50 h-[500px] lg:h-full min-h-[500px] relative bg-bg-secondary p-0 rounded-[2rem] overflow-hidden">
               <iframe 
                 src="https://maps.google.com/maps?q=Jl.%20Jati%20Sari%20Besar%20Gg.%20Langgar,%20Pepelegi,%20Kec.%20Waru,%20Kabupaten%20Sidoarjo&t=&z=16&ie=UTF8&iwloc=&output=embed" 
                 width="100%" 

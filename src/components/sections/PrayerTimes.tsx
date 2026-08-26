@@ -132,7 +132,7 @@ export default function PrayerTimes() {
         </div>
 
         {loading ? (
-          <div className="h-32 flex items-center justify-center text-text-secondary">
+          <div className="h-40 flex items-center justify-center text-text-secondary glass-liquid rounded-[2rem]">
             Memuat jadwal...
           </div>
         ) : error ? (
@@ -147,25 +147,29 @@ export default function PrayerTimes() {
           </div>
         ) : (
           <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
-            {prayerList.map((prayer) => {
+            {prayerList.map((prayer, i) => {
               const isActive = nextPrayer?.name === prayer.name;
               return (
                 <div
                   key={prayer.name}
                   className={cn(
-                    "flex flex-col items-center justify-center py-6 border-b-2 transition-all duration-300 relative",
+                    "flex flex-col items-center justify-center p-6 md:p-8 rounded-[2rem] transition-all duration-500 relative overflow-hidden animate-reveal",
                     isActive 
-                      ? "border-emerald-primary text-emerald-primary" 
-                      : "border-transparent text-text-primary hover:border-border"
+                      ? "bg-text-primary text-bg-primary shadow-lg scale-105 z-10" 
+                      : "bg-bg-primary border border-border/50 text-text-primary hover:border-emerald-primary/30 hover:shadow-sm"
                   )}
+                  style={{animationDelay: `${0.1 * i}s`}}
                 >
+                  {isActive && (
+                    <div className="absolute inset-0 bg-emerald-primary/20 pulse-glow"></div>
+                  )}
                   <span className={cn(
-                    "font-medium mb-2 uppercase tracking-widest text-sm",
+                    "font-medium mb-3 uppercase tracking-widest text-sm relative z-10",
                     isActive ? "text-emerald-primary" : "text-text-secondary"
                   )}>
                     {prayer.name}
                   </span>
-                  <span className="text-3xl md:text-4xl font-bold font-display tabular-nums">
+                  <span className="text-4xl md:text-5xl font-bold font-display tabular-nums tracking-tight relative z-10">
                     {prayer.time}
                   </span>
                 </div>
@@ -174,13 +178,17 @@ export default function PrayerTimes() {
           </div>
         )}
 
-        {/* Friday Schedule Notice */}
-        <div className="mt-12 bg-bg-primary p-6 border border-border border-l-4 border-l-emerald-primary flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
-          <div>
-            <h3 className="font-display font-bold text-lg text-text-primary mb-1">Jumat Ini (21 Agustus 2026)</h3>
-            <p className="text-text-secondary text-sm">Mari rapatkan shaf lebih awal. Waktu Jumu'ah menyesuaikan jadwal Dzuhur.</p>
+        <div className="mt-8 bg-bg-primary p-8 rounded-[2rem] border border-border/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 animate-reveal" style={{animationDelay: '0.6s'}}>
+          <div className="flex items-start gap-4">
+            <div className="w-12 h-12 bg-emerald-primary/10 rounded-full flex items-center justify-center shrink-0 mt-1">
+               <BellRing size={24} className="text-emerald-primary" />
+            </div>
+            <div>
+              <h3 className="font-display font-bold text-xl text-text-primary mb-1">Jumat Ini (21 Agustus 2026)</h3>
+              <p className="text-text-secondary text-sm">Mari rapatkan shaf lebih awal. Waktu Jumu&apos;ah menyesuaikan jadwal Dzuhur.</p>
+            </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-8">
+          <div className="flex flex-col sm:flex-row gap-8 bg-bg-secondary p-6 rounded-3xl border border-border/50">
             <div>
               <p className="text-xs text-text-muted font-medium uppercase tracking-widest mb-1">Khatib</p>
               <p className="font-medium text-text-primary">Ust. H. Abdullah Faqih</p>

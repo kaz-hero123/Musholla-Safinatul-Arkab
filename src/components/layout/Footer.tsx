@@ -23,63 +23,90 @@ const Instagram = ({ size = 24, className = "" }) => (
 
 export default function Footer() {
   return (
-    <footer className="bg-bg-secondary border-t border-border pt-16 pb-8">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-12">
-          {/* Brand */}
-          <div className="md:col-span-1">
-            <Link href="/" className="flex items-center gap-3 mb-6">
-              <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight">S.</span>
-              <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
-            </Link>
-            <p className="text-text-secondary text-sm leading-relaxed mb-6">
-              Pusat pembinaan generasi muda Islam yang berakhlak mulia, mandiri, dan bermanfaat bagi masyarakat sekitar.
-            </p>
+    <footer className="bg-bg-primary pt-24 pb-8 border-t border-border/30">
+      <div className="max-w-[1400px] mx-auto px-4 md:px-6">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
+          
+          {/* Brand Card - Large */}
+          <div className="lg:col-span-5 bg-bg-secondary rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-border/50 animate-reveal">
+            <div>
+              <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
+                <span className="w-12 h-12 rounded-full bg-emerald-primary text-white flex items-center justify-center font-display font-bold italic text-2xl group-hover:scale-105 transition-transform">
+                  S.
+                </span>
+                <span className="font-display font-bold text-2xl text-text-primary tracking-tight">Safinatul Arkab</span>
+              </Link>
+              <p className="text-text-secondary text-lg leading-relaxed max-w-md">
+                Pusat pembinaan generasi muda Islam yang berakhlak mulia, mandiri, dan bermanfaat bagi masyarakat sekitar.
+              </p>
+            </div>
+            <div className="mt-12 flex items-center gap-4">
+              <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noopener noreferrer" className="w-12 h-12 rounded-full bg-bg-primary border border-border/50 flex items-center justify-center text-text-secondary hover:text-emerald-primary hover:border-emerald-primary transition-all hover:scale-105 shadow-sm" aria-label="Instagram">
+                <Instagram size={20} />
+              </a>
+            </div>
           </div>
 
-          {/* Quick Links */}
-          <div>
-            <h3 className="font-display font-bold text-text-primary mb-6">Navigasi</h3>
+          {/* Quick Links Card */}
+          <div className="lg:col-span-3 bg-bg-secondary rounded-[2rem] p-8 md:p-10 border border-border/50 animate-reveal" style={{animationDelay: '0.1s'}}>
+            <h3 className="font-display font-bold text-xl text-text-primary mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-primary"></span> Navigasi
+            </h3>
             <ul className="space-y-4">
-              <li><Link href="/" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Beranda</Link></li>
-              <li><Link href="/tentang" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kisah Kami</Link></li>
-              <li><Link href="/kegiatan" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Pendidikan & Sosial</Link></li>
-              <li><Link href="/infaq" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Laporan Amanah</Link></li>
-              <li><Link href="/kontak" className="text-text-secondary hover:text-emerald-primary text-sm transition-colors">Kunjungi Kami</Link></li>
+              {[
+                { label: 'Beranda', href: '/' },
+                { label: 'Kisah Kami', href: '/tentang' },
+                { label: 'Pendidikan & Sosial', href: '/kegiatan' },
+                { label: 'Laporan Amanah', href: '/infaq' },
+                { label: 'Kunjungi Kami', href: '/kontak' },
+              ].map((link, i) => (
+                <li key={i}>
+                  <Link href={link.href} className="text-text-secondary hover:text-emerald-primary text-base font-medium transition-colors flex items-center gap-2 group">
+                    <span className="w-0 h-0.5 bg-emerald-primary transition-all group-hover:w-4"></span>
+                    {link.label}
+                  </Link>
+                </li>
+              ))}
             </ul>
           </div>
 
-          {/* Contact Info */}
-          <div className="md:col-span-2">
-            <h3 className="font-display font-bold text-text-primary mb-6">Kontak & Lokasi</h3>
-            <ul className="space-y-4">
-              <li className="flex items-start gap-3">
-                <MapPin size={20} className="text-emerald-primary shrink-0 mt-0.5" />
-                <span className="text-text-secondary text-sm leading-relaxed">
+          {/* Contact Info Card */}
+          <div className="lg:col-span-4 bg-bg-secondary rounded-[2rem] p-8 md:p-10 border border-border/50 animate-reveal" style={{animationDelay: '0.2s'}}>
+            <h3 className="font-display font-bold text-xl text-text-primary mb-6 flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-emerald-primary"></span> Hubungi Kami
+            </h3>
+            <ul className="space-y-6">
+              <li className="flex items-start gap-4 group">
+                <div className="w-10 h-10 rounded-full bg-bg-primary flex items-center justify-center text-emerald-primary shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                  <MapPin size={18} />
+                </div>
+                <span className="text-text-secondary text-sm leading-relaxed mt-1">
                   Jl. Jati Sari Besar Gg. Langgar, Legi, Pepelegi, Kec. Waru, Kabupaten Sidoarjo, Jawa Timur 61256
                 </span>
               </li>
-              <li className="flex items-center gap-3">
-                <Phone size={20} className="text-emerald-primary shrink-0" />
-                <span className="text-text-secondary text-sm">+62 821-4350-6574</span>
+              <li className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-full bg-bg-primary flex items-center justify-center text-emerald-primary shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                  <Phone size={18} />
+                </div>
+                <span className="text-text-secondary font-medium">+62 821-4350-6574</span>
               </li>
-              <li className="flex items-center gap-3">
-                <Mail size={20} className="text-emerald-primary shrink-0" />
-                <span className="text-text-secondary text-sm">info@safinatularkab.or.id</span>
+              <li className="flex items-center gap-4 group">
+                <div className="w-10 h-10 rounded-full bg-bg-primary flex items-center justify-center text-emerald-primary shrink-0 group-hover:scale-110 transition-transform shadow-sm">
+                  <Mail size={18} />
+                </div>
+                <span className="text-text-secondary font-medium">info@safinatularkab.or.id</span>
               </li>
             </ul>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-8 border-t border-border flex flex-col md:flex-row justify-between items-center gap-4">
-          <p className="text-text-muted text-sm">
+        <div className="pt-8 border-t border-border/30 flex flex-col md:flex-row justify-between items-center gap-4 animate-reveal" style={{animationDelay: '0.3s'}}>
+          <p className="text-text-muted text-sm font-medium">
             &copy; {new Date().getFullYear()} Remaja Musholla Safinatul Arkab. All rights reserved.
           </p>
-          <div className="flex items-center gap-4">
-            <a href="https://instagram.com/remussafinatularkab" target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-bg-primary border border-border flex items-center justify-center text-text-secondary hover:text-emerald-primary hover:border-emerald-primary transition-all" aria-label="Instagram">
-              <Instagram size={18} />
-            </a>
+          <div className="text-text-muted text-sm">
+            Designed with <span className="text-emerald-primary">♥</span> for the Ummah
           </div>
         </div>
       </div>
