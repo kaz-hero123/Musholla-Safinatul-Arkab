@@ -27,23 +27,35 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${isScrolled ? "bg-bg-primary shadow-sm border-b border-border py-3" : "bg-bg-primary py-5"}`}>
-      <div className="max-w-7xl mx-auto px-6 flex items-center justify-between">
-        <Link href="/" className="flex items-center gap-3">
-          <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight">S.</span>
-          <span className="font-display font-bold text-xl text-text-primary tracking-tight">Safinatul Arkab</span>
+    <header 
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 flex justify-center mt-4 px-4 ${
+        isScrolled ? "translate-y-2" : "translate-y-0"
+      }`}
+    >
+      <div 
+        className={`w-full max-w-5xl mx-auto flex items-center justify-between transition-all duration-500 px-6 py-3 rounded-full ${
+          isScrolled 
+            ? "glass-liquid" 
+            : "bg-bg-primary/80 backdrop-blur-sm border border-transparent shadow-none"
+        }`}
+      >
+        <Link href="/" className="flex items-center gap-3 group">
+          <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight group-hover:scale-105 transition-transform">S.</span>
+          <span className="font-display font-bold text-lg text-text-primary tracking-tight hidden md:block">Safinatul Arkab</span>
         </Link>
 
         {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-2">
+        <nav className="hidden md:flex items-center gap-1">
           {navLinks.map((link) => {
             const isActive = pathname === link.href;
             return (
               <Link
                 key={link.name}
                 href={link.href}
-                className={`px-2 py-2 text-sm font-medium transition-colors border-b-2 ${
-                  isActive ? "border-emerald-primary text-text-primary" : "border-transparent text-text-secondary hover:text-text-primary"
+                className={`px-4 py-2 rounded-full text-sm font-medium transition-all ${
+                  isActive 
+                    ? "bg-text-primary text-white" 
+                    : "text-text-secondary hover:text-text-primary hover:bg-black/5"
                 }`}
               >
                 {link.name}
@@ -54,18 +66,18 @@ export default function Navbar() {
 
         {/* Mobile Toggle */}
         <button
-          className="md:hidden text-text-primary p-2 focus:outline-none"
+          className="md:hidden text-text-primary p-2 focus:outline-none rounded-full hover:bg-black/5 transition-colors"
           onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
           aria-label="Toggle menu"
         >
-          {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+          {isMobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
         </button>
       </div>
 
       {/* Mobile Menu */}
       {isMobileMenuOpen && (
-        <div className="absolute top-full left-0 right-0 bg-bg-primary border-b border-border shadow-xl md:hidden">
-          <nav className="flex flex-col p-4 gap-2">
+        <div className="absolute top-full mt-4 left-4 right-4 glass-liquid rounded-3xl md:hidden overflow-hidden animate-reveal border border-border/50">
+          <nav className="flex flex-col p-4 gap-1">
             {navLinks.map((link) => {
               const isActive = pathname === link.href;
               return (
@@ -73,10 +85,10 @@ export default function Navbar() {
                   key={link.name}
                   href={link.href}
                   onClick={() => setIsMobileMenuOpen(false)}
-                  className={`p-4 text-lg font-medium transition-colors border-l-4 ${
+                  className={`p-4 rounded-2xl text-base font-medium transition-colors ${
                     isActive
-                      ? "border-emerald-primary text-emerald-deep bg-bg-secondary"
-                      : "border-transparent text-text-secondary hover:bg-bg-secondary"
+                      ? "bg-text-primary text-white"
+                      : "text-text-secondary hover:bg-black/5"
                   }`}
                 >
                   {link.name}
