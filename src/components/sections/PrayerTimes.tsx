@@ -16,33 +16,39 @@ export default function PrayerTimes() {
     return () => clearInterval(timer);
   }, []);
 
+  const loadData = async () => {
+    const data = await getPrayerTimes("Sidoarjo");
+    if (data) {
+      setTimes(data);
+      try {
+        localStorage.setItem("prayerTimesCache", JSON.stringify(data));
+      } catch (err) {
+        console.error("Cache error:", err);
+      }
+    } else {
+      try {
+        const cached = localStorage.getItem("prayerTimesCache");
+        if (cached) {
+          setTimes(JSON.parse(cached));
+        } else {
+          setError("Gagal memuat jadwal shalat.");
+        }
+      } catch (err) {
+        console.error("Cache read error:", err);
+        setError("Gagal memuat jadwal shalat.");
+      }
+    }
+    setLoading(false);
+  };
+
   const fetchTimes = () => {
     setLoading(true);
     setError(null);
-    getPrayerTimes("Sidoarjo").then(data => {
-      if (data) {
-        setTimes(data);
-        try {
-          localStorage.setItem("prayerTimesCache", JSON.stringify(data));
-        } catch (e) {}
-      } else {
-        try {
-          const cached = localStorage.getItem("prayerTimesCache");
-          if (cached) {
-            setTimes(JSON.parse(cached));
-          } else {
-            setError("Gagal memuat jadwal shalat.");
-          }
-        } catch (e) {
-          setError("Gagal memuat jadwal shalat.");
-        }
-      }
-      setLoading(false);
-    });
+    loadData();
   };
 
   useEffect(() => {
-    fetchTimes();
+    loadData();
   }, []);
 
   let nextPrayer = null;
