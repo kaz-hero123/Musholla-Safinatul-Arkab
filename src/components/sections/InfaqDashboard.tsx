@@ -109,9 +109,10 @@ export default function InfaqDashboard() {
                   <div className="w-8 h-8 rounded-full bg-emerald-primary/10 flex items-center justify-center shrink-0">
                      <span className="text-emerald-primary text-xs font-bold">{i + 1}</span>
                   </div>
-                  <span className="text-text-primary font-medium mt-1.5">
-                    {note}
-                  </span>
+                  <div className="flex flex-col mt-1">
+                    <span className="text-text-primary font-bold">{note.title}</span>
+                    <span className="text-text-secondary text-sm mt-1">{note.impact}</span>
+                  </div>
                 </div>
               ))}
             </div>
