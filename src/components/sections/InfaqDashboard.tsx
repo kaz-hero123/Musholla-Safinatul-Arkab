@@ -101,7 +101,7 @@ export default function InfaqDashboard() {
           <div className="lg:col-span-7 bg-bg-secondary p-8 md:p-10 rounded-[2rem] border border-border/50 animate-reveal" style={{animationDelay: '0.5s'}}>
             <h3 className="font-display font-bold text-2xl text-text-primary mb-6">Fokus Penyaluran Dana</h3>
             <p className="text-text-secondary text-lg leading-relaxed mb-8">
-              Dana yang diinfakkan jamaah didedikasikan untuk kenyamanan beribadah dan kesejahteraan warga sekitar. Berikut adalah dampak nyata dari infaq Anda bulan ini:
+              Dana yang diinfakkan jamaah difokuskan pada kegiatan operasional harian, pemeliharaan fasilitas ibadah, serta kegiatan sosial kemasyarakatan.
             </p>
             <div className="flex flex-col gap-4">
               {recentDistributionNotes.map((note, i) => (

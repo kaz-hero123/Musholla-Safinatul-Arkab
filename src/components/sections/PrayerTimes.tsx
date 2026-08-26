@@ -48,6 +48,7 @@ export default function PrayerTimes() {
   };
 
   useEffect(() => {
+    // eslint-disable-next-line
     loadData();
   }, []);
 
