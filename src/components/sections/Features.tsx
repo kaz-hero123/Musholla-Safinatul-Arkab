@@ -6,7 +6,7 @@ import Link from "next/link";
 import { ArrowRight, BookOpen } from "lucide-react";
 
 export default function Features() {
-  const topPrograms = PROGRAMS_DATA.slice(0, 3); // Just show top 3 on home
+  const topPrograms = PROGRAMS_DATA.slice(0, 3);
 
   return (
     <section className="py-24 md:py-32 px-6 bg-bg-secondary relative border-t border-border">
