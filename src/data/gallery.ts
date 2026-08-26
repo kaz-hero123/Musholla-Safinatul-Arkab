@@ -23,7 +23,7 @@ export const GALLERY_DATA: GalleryItem[] = [
   },
   {
     id: 3,
-    url: "https://images.unsplash.com/photo-1593113589914-07528e356c32?q=80&w=800&auto=format&fit=crop",
+    url: "https://images.unsplash.com/photo-1532629345422-7515f3d16bb0?q=80&w=800&auto=format&fit=crop",
     title: "Kegiatan Sosial Berbagi",
     description: "Distribusi sembako kepada warga sekitar yang membutuhkan.",
     className: "md:col-span-1"
