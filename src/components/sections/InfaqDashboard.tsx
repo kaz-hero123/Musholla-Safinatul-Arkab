@@ -1,7 +1,7 @@
-"use client";
 import React from "react";
 import { INFAQ_DATA } from "@/data/infaq";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
+import { InfaqCopyButton } from "@/components/ui/infaq-copy-button";
 
 export default function InfaqDashboard() {
   const { 
@@ -10,7 +10,9 @@ export default function InfaqDashboard() {
     expenseThisMonth, 
     goal,
     goalTitle, 
-    recentDistributionNotes 
+    recentDistributionNotes,
+    bankName,
+    accountNumber
   } = INFAQ_DATA;
   
   const progressPercent = Math.min(Math.round((currentBalance / goal) * 100), 100);
@@ -117,12 +119,15 @@ export default function InfaqDashboard() {
               ))}
             </div>
             
-            <div className="mt-8 pt-8 border-t border-border/50">
+            <div className="mt-8 pt-8 border-t border-border/50 flex flex-col gap-6">
+              {bankName && accountNumber && (
+                <InfaqCopyButton bankName={bankName} accountNumber={accountNumber} />
+              )}
               <a 
                 href="https://wa.me/6282143506574" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center bg-text-primary hover:bg-black text-white font-medium px-8 py-4 rounded-full transition-all hover:scale-105 text-sm tracking-wide"
+                className="inline-flex items-center justify-center bg-text-primary hover:bg-black text-white font-medium px-8 py-4 rounded-xl transition-all hover:scale-105 text-sm tracking-wide"
               >
                 Konfirmasi Infaq via WhatsApp
               </a>

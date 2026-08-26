@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Menu, X } from "lucide-react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { AnimatePresence, motion } from "framer-motion";
 
 const navLinks = [
   { name: "Beranda", href: "/" },
@@ -75,29 +76,37 @@ export default function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      {isMobileMenuOpen && (
-        <div className="absolute top-full mt-4 left-4 right-4 glass-liquid rounded-3xl md:hidden overflow-hidden animate-reveal border border-border/50">
-          <nav className="flex flex-col p-4 gap-1">
-            {navLinks.map((link) => {
-              const isActive = pathname === link.href;
-              return (
-                <Link
-                  key={link.name}
-                  href={link.href}
-                  onClick={() => setIsMobileMenuOpen(false)}
-                  className={`p-4 rounded-2xl text-base font-medium transition-colors ${
-                    isActive
-                      ? "bg-text-primary text-white"
-                      : "text-text-secondary hover:bg-black/5"
-                  }`}
-                >
-                  {link.name}
-                </Link>
-              );
-            })}
-          </nav>
-        </div>
-      )}
+      <AnimatePresence>
+        {isMobileMenuOpen && (
+          <motion.div 
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -10 }}
+            transition={{ duration: 0.2 }}
+            className="absolute top-full mt-4 left-4 right-4 glass-liquid rounded-3xl md:hidden overflow-hidden border border-border/50"
+          >
+            <nav className="flex flex-col p-4 gap-1">
+              {navLinks.map((link) => {
+                const isActive = pathname === link.href;
+                return (
+                  <Link
+                    key={link.name}
+                    href={link.href}
+                    onClick={() => setIsMobileMenuOpen(false)}
+                    className={`p-4 rounded-2xl text-base font-medium transition-colors ${
+                      isActive
+                        ? "bg-text-primary text-white"
+                        : "text-text-secondary hover:bg-black/5"
+                    }`}
+                  >
+                    {link.name}
+                  </Link>
+                );
+              })}
+            </nav>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

@@ -14,6 +14,8 @@ export interface InfaqData {
   goalTitle: string;
   history: InfaqHistory[];
   recentDistributionNotes: { title: string; impact: string }[];
+  bankName?: string;
+  accountNumber?: string;
 }
 
 export const INFAQ_DATA: InfaqData = {
@@ -42,5 +44,7 @@ export const INFAQ_DATA: InfaqData = {
       title: "Jumat Berkah",
       impact: "120 porsi makan siang gratis dibagikan untuk jamaah & musafir."
     }
-  ]
+  ],
+  bankName: "", // Isi dengan nama bank (contoh: BSI)
+  accountNumber: "" // Isi dengan nomor rekening
 };

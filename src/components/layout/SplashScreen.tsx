@@ -14,7 +14,7 @@ export default function SplashScreen({ children }: { children: React.ReactNode }
 
   return (
     <>
-      <AnimatePresence>
+      <AnimatePresence> 
         {isLoading && (
           <motion.div
             key="splash"

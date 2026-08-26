@@ -50,7 +50,8 @@ export default function Hero() {
             src="https://images.unsplash.com/photo-1564769625905-50e93615e769?q=80&w=1200&auto=format&fit=crop" 
             alt="Kegiatan jamaah Musholla Safinatul Arkab" 
             fill
-            unoptimized
+            priority
+            sizes="(max-width: 1024px) 100vw, 50vw"
             className="object-cover opacity-80 mix-blend-luminosity group-hover:mix-blend-normal group-hover:scale-105 transition-all duration-1000 ease-out"
           />
           {/* Glass Liquid Caption */}
