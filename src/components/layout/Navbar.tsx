@@ -40,8 +40,11 @@ export default function Navbar() {
             : "bg-bg-primary/80 backdrop-blur-sm border border-transparent shadow-none"
         }`}
       >
-        <Link href="/" className="flex items-center gap-3 group">
-          <span className="font-display font-bold italic text-3xl text-emerald-primary tracking-tight group-hover:scale-105 transition-transform">S.</span>
+        <Link href="/" className="flex items-center gap-2 md:gap-3 group truncate max-w-[75vw]">
+          <span className="font-display font-bold italic text-2xl md:text-3xl text-emerald-primary tracking-tight group-hover:scale-105 transition-transform shrink-0">S.</span>
+          <span className="font-display font-bold text-sm text-text-primary tracking-tight block md:hidden truncate">
+            Musholla Safinatul Arkab
+          </span>
           <span className="font-display font-bold text-lg text-text-primary tracking-tight hidden md:block">Safinatul Arkab</span>
         </Link>
 

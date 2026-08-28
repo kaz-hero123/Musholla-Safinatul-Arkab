@@ -1,7 +1,9 @@
+"use client";
 import React from "react";
 import { INFAQ_DATA } from "@/data/infaq";
 import { ArrowDownRight, ArrowUpRight } from "lucide-react";
 import { InfaqCopyButton } from "@/components/ui/infaq-copy-button";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export default function InfaqDashboard() {
   const { 
@@ -22,104 +24,70 @@ export default function InfaqDashboard() {
       <div className="max-w-7xl mx-auto">
         <h2 className="sr-only">Ringkasan Keuangan</h2>
         
-        {/* Top KPI Metrics - Bento Style */}
-        <div className="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-6 mb-16">
+        {/* Top KPI Metrics - Clean Editorial Style */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 mb-24">
           
           {/* Main Balance */}
-          <div className="md:col-span-6 p-8 md:p-12 bg-emerald-primary text-white rounded-[2rem] flex flex-col justify-center relative overflow-hidden group animate-reveal">
-            <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/2"></div>
-            <h3 className="text-sm font-medium tracking-widest uppercase text-white/80 mb-4">Saldo Kas Aktif</h3>
-            <div className="flex items-baseline gap-2 text-4xl md:text-5xl lg:text-6xl font-bold font-display tracking-tight relative z-10">
-              <span className="text-2xl text-white/60 font-sans font-normal">Rp</span>
+          <FadeIn className="lg:col-span-8 flex flex-col justify-center border-b border-border pb-12 lg:pb-0 lg:border-b-0 lg:border-r lg:pr-12">
+            <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-6">Saldo Kas Aktif</h3>
+            <div className="flex items-baseline gap-2 sm:gap-4 text-5xl sm:text-6xl md:text-8xl lg:text-[7rem] font-bold font-display tracking-tight text-text-primary truncate">
+              <span className="text-2xl sm:text-3xl md:text-4xl text-text-secondary font-sans font-normal">Rp</span>
               {Intl.NumberFormat("id-ID").format(currentBalance)}
             </div>
-          </div>
+          </FadeIn>
 
-          <div className="md:col-span-6 grid grid-rows-2 gap-4 md:gap-6">
+          <div className="lg:col-span-4 flex flex-col justify-center gap-12">
             {/* Income */}
-            <div className="p-6 md:p-8 bg-bg-secondary rounded-[2rem] flex flex-col justify-center border border-border/50 animate-reveal" style={{animationDelay: '0.1s'}}>
-              <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-2 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-emerald-primary/10 flex items-center justify-center">
-                  <ArrowDownRight className="text-emerald-primary" size={16} />
-                </div>
+            <FadeIn delay={0.1} className="flex flex-col">
+              <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-4 flex items-center gap-2">
+                <ArrowDownRight className="text-emerald-primary" size={16} />
                 Pemasukan Bulan Ini
               </h3>
-              <div className="text-3xl font-bold font-display text-text-primary tracking-tight">
-                <span className="text-lg text-text-muted font-sans font-normal mr-1">Rp</span>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-text-primary tracking-tight truncate">
+                <span className="text-lg sm:text-xl text-text-secondary font-sans font-normal mr-2">Rp</span>
                 {Intl.NumberFormat("id-ID").format(incomeThisMonth)}
               </div>
-            </div>
+            </FadeIn>
 
             {/* Expense */}
-            <div className="p-6 md:p-8 bg-bg-secondary rounded-[2rem] flex flex-col justify-center border border-border/50 animate-reveal" style={{animationDelay: '0.2s'}}>
-              <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-2 flex items-center gap-2">
-                <div className="w-8 h-8 rounded-full bg-text-primary/5 flex items-center justify-center">
-                  <ArrowUpRight className="text-text-secondary" size={16} />
-                </div>
+            <FadeIn delay={0.2} className="flex flex-col">
+              <h3 className="text-sm font-medium tracking-widest uppercase text-text-secondary mb-4 flex items-center gap-2">
+                <ArrowUpRight className="text-text-secondary" size={16} />
                 Pengeluaran Bulan Ini
               </h3>
-              <div className="text-3xl font-bold font-display text-text-primary tracking-tight">
-                <span className="text-lg text-text-muted font-sans font-normal mr-1">Rp</span>
+              <div className="text-3xl sm:text-4xl md:text-5xl font-bold font-display text-text-primary tracking-tight truncate">
+                <span className="text-lg sm:text-xl text-text-secondary font-sans font-normal mr-2">Rp</span>
                 {Intl.NumberFormat("id-ID").format(expenseThisMonth)}
               </div>
-            </div>
+            </FadeIn>
           </div>
           
         </div>
 
-        {/* Narrative Impact & Goal - Bento */}
-        <div className="grid lg:grid-cols-12 gap-4 md:gap-6 pt-8">
+        {/* Narrative Impact & Goal */}
+        <div className="grid lg:grid-cols-12 gap-16 pt-12 border-t border-border">
           
-          {/* Goal Progress (Left Bento) */}
-          <div className="lg:col-span-5 bg-bg-secondary p-8 md:p-10 rounded-[2rem] border border-border/50 animate-reveal" style={{animationDelay: '0.4s'}}>
-            <div className="flex flex-col justify-between h-full">
-              <div>
-                <h3 className="text-2xl font-bold font-display text-text-primary mb-2">{goalTitle}</h3>
-                <p className="text-text-secondary mb-8">Bersama kita wujudkan fasilitas yang lebih nyaman untuk jamaah.</p>
-              </div>
-              
-              <div>
-                <div className="flex justify-between items-end mb-4">
-                  <p className="text-xl font-bold text-text-primary">
-                    Rp {Intl.NumberFormat("id-ID").format(currentBalance)} 
-                  </p>
-                  <span className="text-sm font-normal text-text-muted">/ Rp {Intl.NumberFormat("id-ID").format(goal)}</span>
-                </div>
-                
-                <div className="h-4 w-full bg-bg-primary rounded-full overflow-hidden border border-border/50 p-1">
-                  <div 
-                    style={{ width: `${progressPercent}%` }}
-                    className="h-full bg-emerald-primary rounded-full transition-all duration-1000 ease-out relative overflow-hidden" 
-                  >
-                    <div className="absolute inset-0 bg-white/20 -translate-x-full animate-[shimmer_2s_infinite]"></div>
-                  </div>
-                </div>
-                <p className="text-right text-emerald-primary font-bold text-sm mt-3">{progressPercent}% Tercapai</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Narrative (Right Bento) */}
-          <div className="lg:col-span-7 bg-bg-secondary p-8 md:p-10 rounded-[2rem] border border-border/50 animate-reveal" style={{animationDelay: '0.5s'}}>
-            <h3 className="font-display font-bold text-2xl text-text-primary mb-6">Fokus Penyaluran Dana</h3>
-            <p className="text-text-secondary text-lg leading-relaxed mb-8">
+          {/* Narrative */}
+          <FadeIn className="lg:col-span-7">
+            <h2 className="font-display font-bold text-3xl md:text-4xl text-text-primary mb-6">Fokus Penyaluran Dana</h2>
+            <p className="text-text-secondary text-xl leading-relaxed mb-12 max-w-2xl text-balance">
               Dana yang diinfakkan jamaah difokuskan pada kegiatan operasional harian, pemeliharaan fasilitas ibadah, serta kegiatan sosial kemasyarakatan.
             </p>
-            <div className="flex flex-col gap-4">
+            <div className="flex flex-col gap-6">
               {recentDistributionNotes.map((note, i) => (
-                <div key={i} className="flex items-start gap-4 p-4 bg-bg-primary rounded-2xl border border-border/30">
-                  <div className="w-8 h-8 rounded-full bg-emerald-primary/10 flex items-center justify-center shrink-0">
-                     <span className="text-emerald-primary text-xs font-bold">{i + 1}</span>
+                <div key={i} className="flex items-start gap-6 border-b border-border pb-6 last:border-0 last:pb-0">
+                  <div className="text-emerald-primary font-display font-bold text-2xl w-6 shrink-0 mt-1">
+                     {i + 1}
                   </div>
-                  <div className="flex flex-col mt-1">
-                    <span className="text-text-primary font-bold">{note.title}</span>
-                    <span className="text-text-secondary text-sm mt-1">{note.impact}</span>
+                  <div className="flex flex-col">
+                    <h3 className="text-text-primary text-xl font-bold mb-2">{note.title}</h3>
+                    <p className="text-text-secondary text-lg leading-relaxed">{note.impact}</p>
                   </div>
                 </div>
               ))}
             </div>
             
-            <div className="mt-8 pt-8 border-t border-border/50 flex flex-col gap-6">
+            <div className="mt-12 sm:mt-16 flex flex-col sm:flex-row items-stretch sm:items-center gap-4 sm:gap-6">
               {bankName && accountNumber && (
                 <InfaqCopyButton bankName={bankName} accountNumber={accountNumber} />
               )}
@@ -127,12 +95,44 @@ export default function InfaqDashboard() {
                 href="https://wa.me/6282143506574" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="inline-flex items-center justify-center bg-text-primary hover:bg-black text-white font-medium px-8 py-4 rounded-xl transition-all hover:scale-105 text-sm tracking-wide"
+                className="inline-flex items-center justify-center bg-transparent border border-text-primary text-text-primary hover:bg-text-primary hover:text-white font-medium px-8 py-4 transition-colors text-sm tracking-widest uppercase w-full sm:w-auto text-center"
               >
-                Konfirmasi Infaq via WhatsApp
+                Konfirmasi via WA
               </a>
             </div>
-          </div>
+          </FadeIn>
+
+          {/* Goal Progress */}
+          <FadeIn delay={0.2} className="lg:col-span-5 bg-bg-secondary p-10 lg:p-12">
+            <div className="flex flex-col justify-between h-full">
+              <div>
+                <h2 className="text-3xl font-bold font-display text-text-primary mb-4">{goalTitle}</h2>
+                <p className="text-text-secondary text-lg leading-relaxed mb-12">
+                  Bersama kita wujudkan fasilitas yang lebih nyaman untuk jamaah. Target dana tahun ini difokuskan pada renovasi area wudhu.
+                </p>
+              </div>
+              
+              <div>
+                <div className="flex flex-col sm:flex-row justify-between items-start sm:items-end mb-4 gap-2">
+                  <p className="text-2xl font-bold text-text-primary">
+                    Rp {Intl.NumberFormat("id-ID").format(currentBalance)} 
+                  </p>
+                  <span className="text-sm font-medium text-text-secondary uppercase tracking-widest">
+                    Target: Rp {Intl.NumberFormat("id-ID").format(goal)}
+                  </span>
+                </div>
+                
+                <div className="h-2 w-full bg-border overflow-hidden">
+                  <div 
+                    style={{ width: `${progressPercent}%` }}
+                    className="h-full bg-emerald-primary transition-all duration-1000 ease-out" 
+                  ></div>
+                </div>
+                <p className="text-right text-emerald-primary font-bold text-sm mt-4 uppercase tracking-widest">{progressPercent}% Tercapai</p>
+              </div>
+            </div>
+          </FadeIn>
+
         </div>
 
       </div>

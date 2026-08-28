@@ -1,37 +1,38 @@
 @import "tailwindcss";
 
 @theme {
-  --color-bg-primary: #FDFBF7; /* Warm, paper-like off-white */
-  --color-bg-secondary: #F4F2EC; /* Slightly darker warm tone for contrast */
+  --color-bg-primary: #FFFFFF; /* Pure white */
+  --color-bg-secondary: #FAFAFA; /* zinc-50 */
   
-  /* Earthy, grounded green */
-  --color-emerald-primary: #2C4234; /* Deep, calm forest green */
-  --color-emerald-light: #3E5C49; 
-  --color-emerald-deep: #1A2820; 
+  /* Single Accent: Emerald */
+  --color-emerald-primary: #10B981; /* emerald-500 */
+  --color-emerald-light: #34D399; /* emerald-400 */
+  --color-emerald-deep: #065F46; /* emerald-800 */
   
   /* Typography Colors */
-  --color-text-primary: #1A1A1A; /* Very dark gray, softer than pure black */
-  --color-text-secondary: #4A4A4A; /* Medium dark gray */
-  --color-text-muted: #8C8C8C; /* Light text for metadata */
+  --color-text-primary: #09090B; /* zinc-950 */
+  --color-text-secondary: #52525B; /* zinc-500 */
+  --color-text-muted: #A1A1AA; /* zinc-400 */
   
   /* UI Elements */
-  --color-border: #E8E5DF; /* Warm border color matching the bg */
+  --color-border: #E4E4E7; /* zinc-200 */
 
   /* Fonts */
   --font-sans: var(--font-inter), sans-serif;
-  --font-display: var(--font-display), serif; /* Now Playfair Display */
+  --font-display: var(--font-sans);
   --font-arabic: var(--font-amiri), serif;
 }
 
 @layer base {
   :root {
-    --bg-primary: #FDFBF7;
-    --bg-secondary: #F4F2EC;
-    --emerald-primary: #2C4234;
-    --emerald-light: #3E5C49;
-    --text-primary: #1A1A1A;
-    --text-secondary: #4A4A4A;
-    --border: #E8E5DF;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #FAFAFA;
+    --emerald-primary: #10B981;
+    --emerald-light: #34D399;
+    --emerald-deep: #065F46;
+    --text-primary: #09090B;
+    --text-secondary: #52525B;
+    --border: #E4E4E7;
   }
 }
 

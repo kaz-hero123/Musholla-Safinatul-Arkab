@@ -10,7 +10,7 @@ export interface PrayerTimes {
 export async function getPrayerTimes(city: string = "Jakarta", country: string = "Indonesia"): Promise<PrayerTimes | null> {
   try {
     const res = await fetch(
-      `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=20`
+      `https://api.aladhan.com/v1/timingsByCity?city=${city}&country=${country}&method=KEMENAG`
     );
     const data = await res.json();
     if (data.code === 200) {

@@ -28,7 +28,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 mb-16">
           
           {/* Brand Card - Large */}
-          <div className="lg:col-span-5 bg-bg-secondary rounded-[2rem] p-8 md:p-10 flex flex-col justify-between border border-border/50 animate-reveal">
+          <div className="lg:col-span-5 bg-bg-secondary rounded-[2rem] p-6 sm:p-8 md:p-10 flex flex-col justify-between border border-border/50 animate-reveal">
             <div>
               <Link href="/" className="inline-flex items-center gap-3 mb-6 group">
                 <span className="w-12 h-12 rounded-full bg-emerald-primary text-white flex items-center justify-center font-display font-bold italic text-2xl group-hover:scale-105 transition-transform">
@@ -48,7 +48,7 @@ export default function Footer() {
           </div>
 
           {/* Quick Links Card */}
-          <div className="lg:col-span-3 bg-bg-secondary rounded-[2rem] p-8 md:p-10 border border-border/50 animate-reveal" style={{animationDelay: '0.1s'}}>
+          <div className="lg:col-span-3 bg-bg-secondary rounded-[2rem] p-6 sm:p-8 md:p-10 border border-border/50 animate-reveal" style={{animationDelay: '0.1s'}}>
             <h3 className="font-display font-bold text-xl text-text-primary mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-primary"></span> Navigasi
             </h3>
@@ -71,7 +71,7 @@ export default function Footer() {
           </div>
 
           {/* Contact Info Card */}
-          <div className="lg:col-span-4 bg-bg-secondary rounded-[2rem] p-8 md:p-10 border border-border/50 animate-reveal" style={{animationDelay: '0.2s'}}>
+          <div className="lg:col-span-4 bg-bg-secondary rounded-[2rem] p-6 sm:p-8 md:p-10 border border-border/50 animate-reveal" style={{animationDelay: '0.2s'}}>
             <h3 className="font-display font-bold text-xl text-text-primary mb-6 flex items-center gap-2">
               <span className="w-2 h-2 rounded-full bg-emerald-primary"></span> Hubungi Kami
             </h3>

@@ -4,6 +4,7 @@ import { getPrayerTimes, PrayerTimes as PrayerTimesType } from "@/lib/prayer-api
 import { Clock, MapPin, BellRing, AlertCircle, RefreshCw } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
+import { FadeIn } from "@/components/ui/fade-in";
 
 export default function PrayerTimes() {
   const [times, setTimes] = useState<PrayerTimesType | null>(null);
@@ -106,15 +107,15 @@ export default function PrayerTimes() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row items-end justify-between border-b border-border pb-6 mb-12 gap-8">
           <div>
-            <div className="flex items-center gap-2 text-text-secondary mb-2 uppercase text-sm tracking-wider font-semibold">
+            <div className="flex items-center gap-2 text-text-secondary mb-2 text-sm font-medium">
               <MapPin size={16} />
               <span>Sidoarjo & Sekitarnya</span>
             </div>
-            <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary">Jadwal Waktu Shalat</h2>
+            <h2 className="text-3xl md:text-4xl font-display font-bold text-text-primary tracking-tight">Jadwal Waktu Shalat</h2>
           </div>
           
           <div className="flex flex-col sm:flex-row gap-4 w-full md:w-auto">
-            <div className="bg-transparent border border-border rounded-none px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
+            <div className="bg-transparent border border-border px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
               <Clock className="text-text-secondary" />
               <div className="text-sm">
                 <p className="text-text-secondary">Waktu Saat Ini</p>
@@ -125,7 +126,7 @@ export default function PrayerTimes() {
             </div>
             
             {nextPrayer && (
-              <div className="bg-bg-primary border-l-4 border-emerald-primary px-6 py-4 flex items-center gap-4 flex-1 md:flex-none">
+              <div className="bg-bg-primary border-l-4 border-emerald-primary px-6 py-4 flex items-center gap-4 flex-1 md:flex-none shadow-sm">
                 <BellRing className="text-emerald-primary" />
                 <div className="text-sm">
                   <p className="text-emerald-primary font-medium">Menuju {nextPrayer.name}</p>
@@ -139,7 +140,7 @@ export default function PrayerTimes() {
         </div>
 
         {loading ? (
-          <div className="h-40 flex items-center justify-center text-text-secondary glass-liquid rounded-[2rem]">
+          <div className="h-40 flex items-center justify-center text-text-secondary border border-border bg-bg-primary">
             Memuat jadwal...
           </div>
         ) : error ? (
@@ -153,59 +154,59 @@ export default function PrayerTimes() {
             </Button>
           </div>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-5 gap-4">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-px bg-border border border-border">
             {prayerList.map((prayer, i) => {
               const isActive = nextPrayer?.name === prayer.name;
               return (
-                <div
+                <FadeIn
                   key={prayer.name}
+                  delay={i * 0.05}
                   className={cn(
-                    "flex flex-col items-center justify-center p-6 md:p-8 rounded-[2rem] transition-all duration-500 relative overflow-hidden animate-reveal",
-                    isActive 
-                      ? "bg-text-primary text-bg-primary shadow-lg scale-105 z-10" 
-                      : "bg-bg-primary border border-border/50 text-text-primary hover:border-emerald-primary/30 hover:shadow-sm"
+                    "flex flex-col items-center justify-center p-8 bg-bg-primary transition-colors duration-300",
+                    isActive && "bg-text-primary text-bg-primary",
+                    i === 4 && "col-span-2 md:col-span-1"
                   )}
-                  style={{animationDelay: `${0.1 * i}s`}}
                 >
-                  {isActive && (
-                    <div className="absolute inset-0 bg-emerald-primary/20 pulse-glow"></div>
-                  )}
                   <span className={cn(
-                    "font-medium mb-3 uppercase tracking-widest text-sm relative z-10",
-                    isActive ? "text-emerald-primary" : "text-text-secondary"
+                    "font-medium mb-2 uppercase tracking-widest text-xs",
+                    isActive ? "text-emerald-light" : "text-text-secondary"
                   )}>
                     {prayer.name}
                   </span>
-                  <span className="text-4xl md:text-5xl font-bold font-display tabular-nums tracking-tight relative z-10">
+                  <span className={cn(
+                    "text-4xl md:text-5xl font-bold font-display tabular-nums tracking-tight",
+                    isActive ? "text-white" : "text-text-primary"
+                  )}>
                     {prayer.time}
                   </span>
-                </div>
+                </FadeIn>
               );
             })}
           </div>
         )}
 
-        <div className="mt-8 bg-bg-primary p-8 rounded-[2rem] border border-border/50 flex flex-col md:flex-row items-start md:items-center justify-between gap-8 animate-reveal" style={{animationDelay: '0.6s'}}>
+        {/* Friday Roster */}
+        <FadeIn delay={0.3} className="mt-8 bg-bg-primary p-6 border border-border flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
           <div className="flex items-start gap-4">
-            <div className="w-12 h-12 bg-emerald-primary/10 rounded-full flex items-center justify-center shrink-0 mt-1">
-               <BellRing size={24} className="text-emerald-primary" />
+            <div className="w-10 h-10 bg-emerald-primary/10 flex items-center justify-center shrink-0 mt-1">
+               <BellRing size={20} className="text-emerald-primary" />
             </div>
             <div>
-              <h3 className="font-display font-bold text-xl text-text-primary mb-1">Jumat Ini (21 Agustus 2026)</h3>
-              <p className="text-text-secondary text-sm">Mari rapatkan shaf lebih awal. Waktu Jumu&apos;ah menyesuaikan jadwal Dzuhur.</p>
+              <h3 className="font-display font-bold text-xl text-text-primary mb-1">Jadwal Jumat</h3>
+              <p className="text-text-secondary text-sm">Petugas shalat Jumat pekan ini.</p>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row gap-8 bg-bg-secondary p-6 rounded-3xl border border-border/50">
+          <div className="flex flex-col sm:flex-row gap-8 px-6 py-4 border-l border-border md:border-none">
             <div>
               <p className="text-xs text-text-muted font-medium uppercase tracking-widest mb-1">Khatib</p>
-              <p className="font-medium text-text-primary">Ust. H. Abdullah Faqih</p>
+              <p className="font-medium text-text-primary text-lg">Ust. H. Abdullah Faqih</p>
             </div>
             <div>
               <p className="text-xs text-text-muted font-medium uppercase tracking-widest mb-1">Imam</p>
-              <p className="font-medium text-text-primary">Ust. Abdurrahman</p>
+              <p className="font-medium text-text-primary text-lg">Ust. Abdurrahman</p>
             </div>
           </div>
-        </div>
+        </FadeIn>
       </div>
     </section>
   );

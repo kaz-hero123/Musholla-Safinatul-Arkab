@@ -66,7 +66,7 @@ export const SITE_DATA: SiteData = {
     },
     {
       id: 3,
-      url: "https://images.unsplash.com/photo-1593113589914-07528e356c32?q=80&w=800&auto=format&fit=crop",
+      url: "https://images.unsplash.com/photo-1488521787991-ed7bbaae773c?q=80&w=800&auto=format&fit=crop",
       title: "Kegiatan Sosial Berbagi",
       description: "Distribusi sembako kepada warga sekitar yang membutuhkan.",
       className: "md:col-span-1"

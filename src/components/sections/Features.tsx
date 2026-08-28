@@ -14,8 +14,6 @@ export default function Features() {
         <SectionHeader 
           title="Fokus Pendidikan & Sosial"
           subtitle="Musholla Safinatul Arkab bukan hanya tempat shalat, tetapi juga pusat keilmuan dan kepedulian sosial untuk seluruh lapisan warga."
-          badge="Aktivitas Utama"
-          BadgeIcon={BookOpen}
           alignment="left"
         />
 
