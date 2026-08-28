@@ -105,7 +105,7 @@ export default function PrayerTimes() {
   return (
     <section className="py-24 px-6 bg-bg-secondary border-t border-border">
       <div className="max-w-7xl mx-auto">
-        <div className="flex flex-col md:flex-row items-end justify-between border-b border-border pb-6 mb-12 gap-8">
+        <div className="flex flex-col md:flex-row items-start md:items-end justify-between border-b border-border pb-6 mb-6 md:mb-12 gap-6 md:gap-8">
           <div>
             <div className="flex items-center gap-2 text-text-secondary mb-2 text-sm font-medium">
               <MapPin size={16} />
@@ -126,7 +126,8 @@ export default function PrayerTimes() {
             </div>
             
             {nextPrayer && (
-              <div className="bg-bg-primary border-l-4 border-emerald-primary px-6 py-4 flex items-center gap-4 flex-1 md:flex-none shadow-sm">
+              <div className="bg-bg-primary border border-border md:border-l-4 md:border-l-emerald-primary px-6 py-4 flex items-center gap-4 flex-1 md:flex-none shadow-sm relative overflow-hidden">
+                <div className="absolute left-0 top-0 bottom-0 w-1 bg-emerald-primary md:hidden"></div>
                 <BellRing className="text-emerald-primary" />
                 <div className="text-sm">
                   <p className="text-emerald-primary font-medium">Menuju {nextPrayer.name}</p>
@@ -162,19 +163,19 @@ export default function PrayerTimes() {
                   key={prayer.name}
                   delay={i * 0.05}
                   className={cn(
-                    "flex flex-col items-center justify-center p-8 bg-bg-primary transition-colors duration-300",
+                    "flex flex-col items-center justify-center p-4 py-6 sm:p-6 md:p-8 bg-bg-primary transition-colors duration-300",
                     isActive && "bg-text-primary text-bg-primary",
                     i === 4 && "col-span-2 md:col-span-1"
                   )}
                 >
                   <span className={cn(
-                    "font-medium mb-2 uppercase tracking-widest text-xs",
+                    "font-medium mb-1 sm:mb-2 uppercase tracking-widest text-[10px] sm:text-xs",
                     isActive ? "text-emerald-light" : "text-text-secondary"
                   )}>
                     {prayer.name}
                   </span>
                   <span className={cn(
-                    "text-4xl md:text-5xl font-bold font-display tabular-nums tracking-tight",
+                    "text-3xl sm:text-4xl md:text-5xl font-bold font-display tabular-nums tracking-tight",
                     isActive ? "text-white" : "text-text-primary"
                   )}>
                     {prayer.time}

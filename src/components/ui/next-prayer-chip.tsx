@@ -59,29 +59,29 @@ export default function NextPrayerChip() {
   };
 
   return (
-    <Link href="/jadwal-shalat" className="block max-w-xl mx-auto -mt-8 relative z-20 group">
-      <div className="bg-bg-primary border border-border rounded-none px-6 py-4 flex items-center justify-between transition-all hover:bg-bg-secondary">
-        <div className="flex items-center gap-3">
-          <MapPin size={18} className="text-text-secondary" />
-          <span className="text-sm font-medium text-text-primary hidden sm:inline">Sidoarjo</span>
+    <Link href="/" className="block max-w-xl mx-auto -mt-6 sm:-mt-8 relative z-20 group px-4 sm:px-0">
+      <div className="bg-bg-primary border border-border rounded-2xl sm:rounded-none px-4 sm:px-6 py-3 sm:py-4 flex items-center justify-between transition-all shadow-sm hover:bg-bg-secondary">
+        <div className="flex items-center gap-2 sm:gap-3">
+          <MapPin size={16} className="text-text-secondary sm:w-[18px] sm:h-[18px]" />
+          <span className="text-xs sm:text-sm font-medium text-text-primary">Sidoarjo</span>
         </div>
         
         {nextPrayer ? (
-          <div className="flex items-center gap-4">
-            <div className="flex items-center gap-2">
-              <BellRing size={16} className="text-emerald-primary" />
-              <span className="text-sm text-emerald-primary font-medium">{nextPrayer.name}</span>
+          <div className="flex items-center gap-2 sm:gap-4">
+            <div className="flex items-center gap-1.5 sm:gap-2">
+              <BellRing size={14} className="text-emerald-primary sm:w-[16px] sm:h-[16px]" />
+              <span className="text-xs sm:text-sm text-emerald-primary font-medium">{nextPrayer.name}</span>
             </div>
-            <div className="h-4 w-px bg-border"></div>
-            <span className="text-sm font-bold text-text-primary tabular-nums">
+            <div className="h-3 sm:h-4 w-px bg-border"></div>
+            <span className="text-xs sm:text-sm font-bold text-text-primary tabular-nums">
               {formatCountdown(nextPrayer.diffMs)}
             </span>
           </div>
         ) : (
-          <div className="text-sm text-text-secondary">Memuat jadwal...</div>
+          <div className="text-xs sm:text-sm text-text-secondary">Memuat jadwal...</div>
         )}
         
-        <span className="text-emerald-primary group-hover:translate-x-1 transition-transform">→</span>
+        <span className="text-emerald-primary group-hover:translate-x-1 transition-transform ml-2">→</span>
       </div>
     </Link>
   );
